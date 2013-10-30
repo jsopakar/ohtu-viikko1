@@ -1,4 +1,10 @@
 Ohjelmoinnin harjoitustyön tuntikirjanpito
 
+Ennen kurssin alkua, 5-10h sekalaista esitietokertausta, mm. mooc-kertaustehtävien avulla.
+
 Ma 28.10.
  - 2h Aloitusluento plus sekalaista asioihin perehtymistä
+Ke 30.10.
+ - 2h Perehtyminen jatkuu, githubiin paremmin tutustumista, ensimmäisen 
+      palautuksen valmistelua. Lisäksi aiheen valintaa, ja alustavaa
+      kokonaisuuden suunnittelua.
