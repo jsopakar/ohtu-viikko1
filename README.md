@@ -1,7 +1,4 @@
-OhHa
+Javeled
 ====
 
-Ohjelmoinnin harjoitustyö
-
---
-Koelisäys tiedostoon.
+Ohjelmoinnin harjoitustyö, "Javeled"-niminen peli. Lisätietoja dokumentaatiossa.
