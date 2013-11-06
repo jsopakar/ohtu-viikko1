@@ -47,7 +47,7 @@ public class PeliruudukkoTest {
     // Koetesti
     public void ruudukonEkanRuudunArvoOikein() {
         Peliruudukko ruudukko = new Peliruudukko(6);
-        ruudukko.taytaRuudukko();
+        ruudukko.taytaRuudukkoSatunnaisesti();
         int ekaArvo = ruudukko.palautaRuutu(0, 0).kerroTyyppi();
         
         // selvitettävä miten testata palautusarvon olevan 0-3:::

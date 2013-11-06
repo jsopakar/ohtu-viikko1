@@ -10,6 +10,12 @@ import Sovelluslogiikka.*;
  *
  * @author jsopakar
  */
+
+/* Luokka tekstipohjaiselle käyttöliittymälle, lähinnä pelin rakennus-
+ * ja testausvaiheeseen. Myöhemmin toiminnallisuus tulee siirtymään
+ * graafisen käyttöliittymäluokan taakse.
+ */
+
 public class TekstiKL {
 
     public TekstiKL() {
@@ -26,7 +32,7 @@ public class TekstiKL {
         
         tulostaRuudukko(ruudukko);
         
-        ruudukko.kasitteleRuutu(5, 2);
+        ruudukko.kasitteleRuutu(5, 3);
         
         System.out.println("Käsittelyn jälkeen: ");
         
