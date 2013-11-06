@@ -22,7 +22,11 @@ public class Pelitaso {
     public Pelitaso() {
         
         ruudukko = new Peliruudukko(tempTestikoko);
-        
+        ruudukko.taytaRuudukko();
     }
     
+    public Peliruudukko getRuudukko() {
+        return this.ruudukko;
+    }
+       
 }

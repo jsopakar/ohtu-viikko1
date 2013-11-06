@@ -4,6 +4,7 @@
  */
 package javeled;
 
+import Kayttoliittyma.TekstiKL;
 import Sovelluslogiikka.*;
 
 /**
@@ -19,7 +20,10 @@ public class Javeled {
         
         System.out.println("Javeled alpha");
         
-        Pelitaso peli = new Pelitaso();
+        // Pelitaso peli = new Pelitaso();
+        
+        TekstiKL kl = new TekstiKL();
+        kl.testipeli();
         
     }
 }

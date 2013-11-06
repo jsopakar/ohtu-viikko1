@@ -25,11 +25,18 @@ public class Peliruudukko {
     public void taytaRuudukko() {
         for (int i = 0; i<koko; i++) {
             for (int j = 0; j<koko; j++ ) {
-                sisalto[i][j] = new Ruutu(1);
+                sisalto[i][j] = new Ruutu(i);
             }
         }
     }
     
+    public Ruutu palautaRuutu(int x, int y) {
+        return sisalto[x][y];
+    }
+    
+    public int kerroKoko() {
+        return this.koko;
+    }
     
     
 }
