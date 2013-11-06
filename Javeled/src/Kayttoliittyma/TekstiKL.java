@@ -22,10 +22,15 @@ public class TekstiKL {
         System.out.println("Luodaan kenttä:");
         
         Pelitaso peli = new Pelitaso();
+        Peliruudukko ruudukko = peli.getRuudukko();
         
-        tulostaRuudukko(peli.getRuudukko());
+        tulostaRuudukko(ruudukko);
         
+        ruudukko.kasitteleRuutu(5, 2);
         
+        System.out.println("Käsittelyn jälkeen: ");
+        
+        tulostaRuudukko(ruudukko);
     }
     
     private void tulostaRuudukko(Peliruudukko ruudukko) {
@@ -33,7 +38,6 @@ public class TekstiKL {
         
         for (int i=0; i<koko; i++) {
             for (int j=0; j<koko; j++) {
-                
                 System.out.print(ruudukko.palautaRuutu(i, j).kerroTyyppi());
             }
             System.out.println("");

@@ -19,6 +19,7 @@ public class Javeled {
     public static void main(String[] args) {
         
         System.out.println("Javeled alpha");
+        System.out.println("-------------\n");
         
         // Pelitaso peli = new Pelitaso();
         

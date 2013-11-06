@@ -25,7 +25,8 @@ public class Peliruudukko {
     public void taytaRuudukko() {
         for (int i = 0; i<koko; i++) {
             for (int j = 0; j<koko; j++ ) {
-                sisalto[i][j] = new Ruutu(i);
+                int luku = (int)(Math.random() * 3) + 1; //satunnaisluku 1-3
+                sisalto[i][j] = new Ruutu(luku);
             }
         }
     }
@@ -36,6 +37,16 @@ public class Peliruudukko {
     
     public int kerroKoko() {
         return this.koko;
+    }
+    
+    // TODO: Tämä ei vielä tee mitään, tarvitsee kunnon 
+    public void kasitteleRuutu(int x, int y) {
+        
+        //kokeilua, ei oikeaa logiikkaa:
+        if (this.sisalto[x][y].kerroTyyppi() == 1) {
+            this.sisalto[x][y].asetaTyyppi(0);
+        }
+            
     }
     
     
