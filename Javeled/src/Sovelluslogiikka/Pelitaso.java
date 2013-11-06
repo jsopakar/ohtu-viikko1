@@ -15,4 +15,14 @@ package Sovelluslogiikka;
  */
 public class Pelitaso {
     
+    private int tempTestikoko = 6;
+    
+    private Peliruudukko ruudukko;
+    
+    public Pelitaso() {
+        
+        ruudukko = new Peliruudukko(tempTestikoko);
+        
+    }
+    
 }

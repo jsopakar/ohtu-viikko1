@@ -21,6 +21,14 @@ public class Ruutu {
         this.tyyppi = tyyppi;
     }
     
+    public int kerroTyyppi() {
+        return this.tyyppi;
+    }
+    
+    public void asetaTyyppi(int uusiTyyppi) {
+        this.tyyppi = uusiTyyppi;
+    }
+    
     
     
 }

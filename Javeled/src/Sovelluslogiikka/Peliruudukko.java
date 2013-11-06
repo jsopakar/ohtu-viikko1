@@ -14,4 +14,22 @@ package Sovelluslogiikka;
  */
 public class Peliruudukko {
     
+    private int koko;
+    private Ruutu[][] sisalto;
+    
+    public Peliruudukko(int koko) {
+        this.koko = koko;
+        sisalto = new Ruutu[koko][koko];
+    }
+    
+    public void taytaRuudukko() {
+        for (int i = 0; i<koko; i++) {
+            for (int j = 0; j<koko; j++ ) {
+                sisalto[i][j] = new Ruutu(1);
+            }
+        }
+    }
+    
+    
+    
 }
