@@ -16,7 +16,7 @@ public class Peliruudukko {
     
     private int koko;
     private Ruutu[][] sisalto;
-    
+        
     public Peliruudukko(int koko) {
         this.koko = koko;
         sisalto = new Ruutu[koko][koko];
@@ -35,6 +35,8 @@ public class Peliruudukko {
     // Täytyy siirtää myöhemmin logiikka parempaan paikkaan, jossa
     // mahdollisuus palauttaa joku esimerkkiruudukko, satunnainen oletuskoko,
     // tai myös tiedostosta luettu erikoisempi pelimuoto.
+    
+    //
     public void taytaEsimerkkiruudukko() {
         Ruutu[][] uusiSisalto = new Ruutu[koko][koko];
         int[][] numerot  =
@@ -53,29 +55,49 @@ public class Peliruudukko {
         this.sisalto = uusiSisalto;
     }
     
-    public Ruutu palautaRuutu(int x, int y) {
-        return sisalto[x][y];
+    // Koordinaatiston suunta ja mietittävä, ei ehkä lopullinen...
+    public Ruutu palautaRuutu(int rivi, int sarake) {
+        return sisalto[rivi][sarake];
     }
     
     public int kerroKoko() {
         return this.koko;
     }
     
-    // TODO: Tämä ei vielä tee mitään, tarvitsee kunnon logiikan
-    public void kasitteleRuutu(int x, int y) {
+    // TODO: Tämä ei vielä tee mitään, järkevää tarvitsee kunnon logiikan
+    // ja pilkkomisen fiksuihin osametodeihin. 
+    
+    //public void kasitteleRuutu(int x, int y) {
+    public int kasitteleRuutu(int rivi, int sarake) { // tilapäisesti palauttaa samojen ruutujen määrän
         
-        //kokeilua, ei oikeaa logiikkaa:
-        if (this.sisalto[x][y].kerroTyyppi() == 1) {
-            this.sisalto[x][y].asetaTyyppi(0);
+        int samoja = 1;
+        
+        Ruutu tamaRuutu = this.palautaRuutu(rivi, sarake);
+        
+        //taulukko, johon kasataan 4 ilmansuuntaan lukumäärä, kuinka monta samaa
+        // järjestys: vasen, oikea, ylä, ala
+        int[] samaaSuuntiin = new int[4];
+        
+        int tempRivi = rivi-1; int tempSarake = sarake-1;
+        
+        //Vasen suunta:
+        while (tempSarake >= 0 &&
+                this.palautaRuutu(rivi, tempSarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
+            samoja++;
+            tempSarake--;
         }
-        
-        if (x < this.koko) {
-            int a = x;
-            while (a<koko) {
                 
-                a++;
-            }
+        //Oikea suunta:
+        tempSarake = sarake+1;
+        while (tempSarake < this.koko &&
+                this.palautaRuutu(rivi, tempSarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
+            samoja++;
+            tempSarake++;
         }
+        
+        // Pystytarkastelu puuttuu
+        
+        return samoja; // palautetaan vain samojen määrä, ei vielä tallenneta sijainteja
             
     }
     

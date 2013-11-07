@@ -32,7 +32,10 @@ public class TekstiKL {
         
         tulostaRuudukko(ruudukko);
         
-        ruudukko.kasitteleRuutu(5, 3);
+        System.out.println("Käsitellään ruutu:");
+        System.out.println(ruudukko.palautaRuutu(1,2).kerroTyyppi());
+        int testitulos = ruudukko.kasitteleRuutu(1,2);
+        System.out.println("Samoja: "+ testitulos);
         
         System.out.println("Käsittelyn jälkeen: ");
         tulostaRuudukko(ruudukko);
@@ -41,7 +44,7 @@ public class TekstiKL {
         System.out.println(ruudukko.siirtoMahdollinen(0,0,0,1));
         ruudukko.vaihdaRuudut(2, 1, 2, 2);
         
-        tulostaRuudukko(ruudukko);
+        //tulostaRuudukko(ruudukko);
     }
     
     private void tulostaRuudukko(Peliruudukko ruudukko) {

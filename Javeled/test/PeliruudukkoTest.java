@@ -33,6 +33,7 @@ public class PeliruudukkoTest {
     @Before
     public void setUp() {
         ruudukko = new Peliruudukko(6);
+        ruudukko.taytaEsimerkkiruudukko();
     }
     
     @After
@@ -49,17 +50,15 @@ public class PeliruudukkoTest {
     @Test
     // Koetesti
     public void ruudukonEkanRuudunArvoOikein() {
-        ruudukko.taytaEsimerkkiruudukko();
         int ekaArvo = ruudukko.palautaRuutu(0, 0).kerroTyyppi();
         
-        // selvitettävä miten testata palautusarvon olevan 0-3:::
-        //assertArrayEquals(int, int);
+        assertEquals(1, ekaArvo);
+        
     } 
     
     @Test
     // TODO: muokattava paremmaksi vielä...
     public void onnistuukoRuutujenVaihto() {
-        ruudukko.taytaEsimerkkiruudukko();
         int arvo1 = ruudukko.palautaRuutu(2, 1).kerroTyyppi();
         int arvo2 = ruudukko.palautaRuutu(2, 2).kerroTyyppi();
         ruudukko.vaihdaRuudut(2, 1, 2, 2);
@@ -73,8 +72,30 @@ public class PeliruudukkoTest {
     
     @Test
     public void toimiikoSamanTyypinRuudunSiirtojenEsto() {
-        ruudukko.taytaEsimerkkiruudukko();
         boolean onnistuiko = ruudukko.siirtoMahdollinen(0, 0, 0, 1);
         assertEquals(false, onnistuiko);
     }
+    
+    @Test
+    public void toimiikoYksittaisenRuudunTarkastelu() {
+        int samojenMaara = ruudukko.kasitteleRuutu(2, 2);
+        assertEquals(1, samojenMaara);
+    }
+    
+    @Test
+    public void toimiikoKolmenRuudunTarkastelu() {
+        int samojenMaara = ruudukko.kasitteleRuutu(1, 3);
+        assertEquals(3, samojenMaara);
+    }
+    
+    @Test
+    //taulukon raja-arvoja varten
+    public void toimiikoEnsimmaisenJaViimaisenTarkastelu() {
+        int samojenMaaraEka = ruudukko.kasitteleRuutu(0, 0);
+        assertEquals(2, samojenMaaraEka);
+        int samojenMaaraViimainen = ruudukko.kasitteleRuutu(5, 5);
+        assertEquals(1, samojenMaaraViimainen);
+    }
+    
+    
 }
