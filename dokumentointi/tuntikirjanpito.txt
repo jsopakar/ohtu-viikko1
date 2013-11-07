@@ -8,3 +8,11 @@ Ke 30.10.
  - 2h Perehtyminen jatkuu, githubiin paremmin tutustumista, ensimmäisen 
       palautuksen valmistelua. Lisäksi aiheen valintaa, ja alustavaa
       kokonaisuuden suunnittelua.
+
+Ti 5.11.
+ - 0,5h Sekalaista opettelua
+Ke 6.11
+ - 3h Perusluokkien runkoa, testaamiseen perehtymistä ja ensimmäisten testien luontia
+To 7.11
+ - 3h Jatkoa edelliseen, lisää perustoiminnallisuutta, muutama testi, ja asioiden opettelua ja kertausta
+
