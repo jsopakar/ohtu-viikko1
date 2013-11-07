@@ -79,5 +79,31 @@ public class Peliruudukko {
             
     }
     
+    public boolean vaihdaRuudut(int x1, int y1, int x2, int y2) {
+        if (siirtoMahdollinen(x1, y1, x2, y2)) {
+            Ruutu r1 = sisalto[x1][y1];
+            Ruutu r2 = sisalto[x2][y2];
+            sisalto[x1][y1] = r2;
+            sisalto[x2][y2] = r1;
+            
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    // Metodi, joka katsoo onko pelaajan antama siirto mahdollinen
+    public boolean siirtoMahdollinen(int x1, int y1, int x2, int y2) {
+        boolean onOK = true;
+        int arvo1 = sisalto[x1][y1].kerroTyyppi();
+        int arvo2 = sisalto[x1][y2].kerroTyyppi();
+        
+        // Saman tyypin ruutuja ei voi vaihtaa keskenään
+        if (arvo1 == arvo2) {
+            onOK = false;
+        }
+        
+        return onOK;
+    }
     
 }

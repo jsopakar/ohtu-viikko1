@@ -35,6 +35,11 @@ public class TekstiKL {
         ruudukko.kasitteleRuutu(5, 3);
         
         System.out.println("Käsittelyn jälkeen: ");
+        tulostaRuudukko(ruudukko);
+        
+        System.out.println("Vaihdetaan: ");
+        System.out.println(ruudukko.siirtoMahdollinen(0,0,0,1));
+        ruudukko.vaihdaRuudut(2, 1, 2, 2);
         
         tulostaRuudukko(ruudukko);
     }
