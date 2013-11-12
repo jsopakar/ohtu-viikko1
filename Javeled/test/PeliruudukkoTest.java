@@ -4,6 +4,8 @@
  */
 
 import Sovelluslogiikka.Peliruudukko;
+import java.awt.Point;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -97,5 +99,27 @@ public class PeliruudukkoTest {
         assertEquals(1, samojenMaaraViimainen);
     }
     
+    @Test
+    public void toimiikoYhdenRuudunPoisto() {
+        ArrayList<Point> poistettavat = new ArrayList<Point>();
+        poistettavat.add(new Point(2, 3));
+        ruudukko.poistaRuudut(poistettavat);
+        int poistetunTyyppi = ruudukko.palautaRuutu(2, 3).kerroTyyppi();
+        assertEquals(0, poistetunTyyppi);
+    }
+    
+    public void toimiikoUseanRuudunPoisto() {
+        ArrayList<Point> poistettavat = new ArrayList<Point>();
+        poistettavat.add(new Point(0, 0));
+        poistettavat.add(new Point(3, 2));
+        poistettavat.add(new Point(5, 5));
+        ruudukko.poistaRuudut(poistettavat);
+        int[] oikea = {0,0,0};
+        int[] poistetut = new int[3];
+        poistetut[0] = ruudukko.palautaRuutu(0, 0).kerroTyyppi();
+        poistetut[1] = ruudukko.palautaRuutu(3, 3).kerroTyyppi();
+        poistetut[2] = ruudukko.palautaRuutu(5, 5).kerroTyyppi();
+        assertArrayEquals(oikea, poistetut);
+    }
     
 }

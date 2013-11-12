@@ -4,6 +4,9 @@
  */
 package Sovelluslogiikka;
 
+import java.awt.Point;
+import java.util.ArrayList;
+
 /**
  *
  * @author jsopakar
@@ -95,18 +98,31 @@ public class Peliruudukko {
             tempSarake++;
         }
         
-        // Pystytarkastelu puuttuu
+        // Yläsuunta
+        tempRivi = rivi - 1;
+        while (tempRivi >= 0 &&
+                this.palautaRuutu(tempRivi, sarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
+            samoja++;
+            tempRivi--;
+        }
+        
+        //Alasuunta
+        tempRivi = rivi + 1;
+        while (tempRivi < this.koko &&
+                this.palautaRuutu(rivi, tempSarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
+            
+        }
         
         return samoja; // palautetaan vain samojen määrä, ei vielä tallenneta sijainteja
             
     }
     
-    public boolean vaihdaRuudut(int x1, int y1, int x2, int y2) {
-        if (siirtoMahdollinen(x1, y1, x2, y2)) {
-            Ruutu r1 = sisalto[x1][y1];
-            Ruutu r2 = sisalto[x2][y2];
-            sisalto[x1][y1] = r2;
-            sisalto[x2][y2] = r1;
+    public boolean vaihdaRuudut(int rivi1, int sarake1, int rivi2, int sarake2) {
+        if (siirtoMahdollinen(rivi1, sarake1, rivi2, sarake2)) {
+            Ruutu r1 = sisalto[rivi1][sarake1];
+            Ruutu r2 = sisalto[rivi2][sarake2];
+            sisalto[rivi1][sarake1] = r2;
+            sisalto[rivi2][sarake2] = r1;
             
             return true;
         } else {
@@ -126,6 +142,12 @@ public class Peliruudukko {
         }
         
         return onOK;
+    }
+    
+    public void poistaRuudut(ArrayList<Point> poistettavat) {
+        for ( Point p : poistettavat) {
+            this.sisalto[p.x][p.y] = new Ruutu(0);
+        }
     }
     
 }

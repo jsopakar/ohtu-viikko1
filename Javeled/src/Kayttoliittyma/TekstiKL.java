@@ -5,6 +5,8 @@
 package Kayttoliittyma;
 
 import Sovelluslogiikka.*;
+import java.awt.Point;
+import java.util.ArrayList;
 
 /**
  *
@@ -32,17 +34,25 @@ public class TekstiKL {
         
         tulostaRuudukko(ruudukko);
         
-        System.out.println("Käsitellään ruutu:");
-        System.out.println(ruudukko.palautaRuutu(1,2).kerroTyyppi());
-        int testitulos = ruudukko.kasitteleRuutu(1,2);
-        System.out.println("Samoja: "+ testitulos);
+        ArrayList<Point> poistettavat = new ArrayList<Point>();
+        poistettavat.add(new Point(1, 1));
+        poistettavat.add(new Point(2, 2));
+        ruudukko.poistaRuudut(poistettavat);
         
-        System.out.println("Käsittelyn jälkeen: ");
+        System.out.println("Poiston jälkeen:");
         tulostaRuudukko(ruudukko);
         
-        System.out.println("Vaihdetaan: ");
-        System.out.println(ruudukko.siirtoMahdollinen(0,0,0,1));
-        ruudukko.vaihdaRuudut(2, 1, 2, 2);
+        //System.out.println("Käsitellään ruutu:");
+        //System.out.println(ruudukko.palautaRuutu(1,2).kerroTyyppi());
+        //int testitulos = ruudukko.kasitteleRuutu(1,2);
+        //System.out.println("Samoja: "+ testitulos);
+        
+        //System.out.println("Käsittelyn jälkeen: ");
+        //tulostaRuudukko(ruudukko);
+        
+        //System.out.println("Vaihdetaan: ");
+        //System.out.println(ruudukko.siirtoMahdollinen(0,0,0,1));
+        //ruudukko.vaihdaRuudut(2, 1, 2, 2);
         
         //tulostaRuudukko(ruudukko);
     }
