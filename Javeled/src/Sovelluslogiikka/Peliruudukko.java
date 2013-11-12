@@ -19,7 +19,12 @@ public class Peliruudukko {
     
     private int koko;
     private Ruutu[][] sisalto;
-        
+    
+    // Poistettavien ruutujen rakenne, alustavasti luokkamuuttujana
+    // mutta voi olla että tulee siirtymään parametreina välitettäväksi
+    private ArrayList<Point> poistettavatRuudut =
+            new ArrayList<Point>();
+    
     public Peliruudukko(int koko) {
         this.koko = koko;
         sisalto = new Ruutu[koko][koko];
@@ -87,6 +92,7 @@ public class Peliruudukko {
         while (tempSarake >= 0 &&
                 this.palautaRuutu(rivi, tempSarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
             samoja++;
+            samaaSuuntiin[0]++;
             tempSarake--;
         }
                 
@@ -95,6 +101,7 @@ public class Peliruudukko {
         while (tempSarake < this.koko &&
                 this.palautaRuutu(rivi, tempSarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
             samoja++;
+            samaaSuuntiin[1]++;
             tempSarake++;
         }
         
@@ -111,6 +118,14 @@ public class Peliruudukko {
         while (tempRivi < this.koko &&
                 this.palautaRuutu(rivi, tempSarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
             
+        }
+        
+        // Vaakaruutujen lisäys poistettaviin
+        if (samaaSuuntiin[0] + samaaSuuntiin[1] >= 2) {
+            for (int i = sarake - samaaSuuntiin[0]; i <= sarake + samaaSuuntiin[1]; i++) {
+                poistettavatRuudut.add(new Point(rivi, i));
+                
+            }
         }
         
         return samoja; // palautetaan vain samojen määrä, ei vielä tallenneta sijainteja
@@ -153,6 +168,14 @@ public class Peliruudukko {
         for ( Point p : poistettavat) {
             poistaRuutu(p.x, p.y);
         }
+    }
+    
+    // Tilapäinen rakennusvaiheen metodi varmaan...
+    public void teePoisto() {
+        if (poistettavatRuudut != null) {
+            poistaRuudut(poistettavatRuudut);
+        }
+        poistettavatRuudut = null;
     }
     
 }

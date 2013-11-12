@@ -34,13 +34,26 @@ public class TekstiKL {
         
         tulostaRuudukko(ruudukko);
         
+        boolean boo = ruudukko.vaihdaRuudut(0, 0, 1, 0);
+        System.out.println(boo);
+        System.out.println("asd");
+        tulostaRuudukko(ruudukko);
+        
+        int x = ruudukko.kasitteleRuutu(1, 2);
+        ruudukko.teePoisto();
+        
+        System.out.println("Käsittelyn jälkeen:");
+        tulostaRuudukko(ruudukko);
+        
+        /*
         ArrayList<Point> poistettavat = new ArrayList<Point>();
-        poistettavat.add(new Point(1, 1));
-        poistettavat.add(new Point(2, 2));
+        poistettavat.add(new Point(0, 2));
+        poistettavat.add(new Point(5, 4));
         ruudukko.poistaRuudut(poistettavat);
         
         System.out.println("Poiston jälkeen:");
         tulostaRuudukko(ruudukko);
+        */
         
         //System.out.println("Käsitellään ruutu:");
         //System.out.println(ruudukko.palautaRuutu(1,2).kerroTyyppi());
