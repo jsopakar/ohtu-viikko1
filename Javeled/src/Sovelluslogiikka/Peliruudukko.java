@@ -144,9 +144,14 @@ public class Peliruudukko {
         return onOK;
     }
     
+    /* Yksittäisen ruudun poistava metodi */
+    public void poistaRuutu(int sarake, int rivi) {
+        this.sisalto[sarake][rivi] = new Ruutu(0);
+    }
+    
     public void poistaRuudut(ArrayList<Point> poistettavat) {
         for ( Point p : poistettavat) {
-            this.sisalto[p.x][p.y] = new Ruutu(0);
+            poistaRuutu(p.x, p.y);
         }
     }
     
