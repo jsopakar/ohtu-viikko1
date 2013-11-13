@@ -7,6 +7,7 @@ package Kayttoliittyma;
 import Sovelluslogiikka.*;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -19,7 +20,9 @@ import java.util.ArrayList;
  */
 
 public class TekstiKL {
-
+    
+    Peliruudukko ruudukko;
+    
     public TekstiKL() {
         
     }
@@ -30,16 +33,18 @@ public class TekstiKL {
         System.out.println("Luodaan kenttä:");
         
         Pelitaso peli = new Pelitaso();
-        Peliruudukko ruudukko = peli.getRuudukko();
+        ruudukko = peli.getRuudukko();
         
         tulostaRuudukko(ruudukko);
         
-        //boolean boo = ruudukko.vaihdaRuudut(0, 0, 1, 0);
-        //System.out.println(boo);
+        
+        
+        boolean boo = ruudukko.vaihdaRuudut(0, 0, 1, 0);
+        System.out.println(boo);
         System.out.println("asd");
         tulostaRuudukko(ruudukko);
         
-        int x = ruudukko.kasitteleRuutu(2, 1);
+        int x = ruudukko.kasitteleRuutu(1, 1);
         ruudukko.teePoisto();
         
         System.out.println("Käsittelyn jälkeen:");
@@ -80,6 +85,35 @@ public class TekstiKL {
             System.out.println("");
         }
 
+    }
+    
+    private void lueKomento() {
+        Scanner lukija = new Scanner(System.in);
+        
+        String komento = lukija.nextLine();
+        while (komento != "") {
+            
+            int rivi1, sarake1, rivi2, sarake2;
+            char kirjain = komento.charAt(0);
+            switch (kirjain) {
+                case 'K':   // K=käsittele
+                    System.out.println("Anna rivi ja sarake:");
+                    rivi1 = Integer.parseInt(lukija.nextLine());
+                    sarake1 = Integer.parseInt(lukija.nextLine());
+                    ruudukko.kasitteleRuutu(rivi1, sarake1);
+                    break;
+                case 'V':   // V=vaihto
+                    System.out.println("Anna siirrettävän rivi ja sarake");
+                    rivi1 = Integer.parseInt(lukija.nextLine());
+                    sarake1 = Integer.parseInt(lukija.nextLine());
+                    rivi2 = Integer.parseInt(lukija.nextLine());
+                    sarake2 = Integer.parseInt(lukija.nextLine());
+                    
+                    break;
+                default :
+                    break;
+            }
+        }
     }
     
 }
