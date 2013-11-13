@@ -34,12 +34,12 @@ public class TekstiKL {
         
         tulostaRuudukko(ruudukko);
         
-        boolean boo = ruudukko.vaihdaRuudut(0, 0, 1, 0);
-        System.out.println(boo);
+        //boolean boo = ruudukko.vaihdaRuudut(0, 0, 1, 0);
+        //System.out.println(boo);
         System.out.println("asd");
         tulostaRuudukko(ruudukko);
         
-        int x = ruudukko.kasitteleRuutu(1, 2);
+        int x = ruudukko.kasitteleRuutu(2, 1);
         ruudukko.teePoisto();
         
         System.out.println("Käsittelyn jälkeen:");

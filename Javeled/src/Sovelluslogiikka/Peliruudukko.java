@@ -110,14 +110,17 @@ public class Peliruudukko {
         while (tempRivi >= 0 &&
                 this.palautaRuutu(tempRivi, sarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
             samoja++;
+            samaaSuuntiin[2]++;
             tempRivi--;
         }
         
         //Alasuunta
         tempRivi = rivi + 1;
         while (tempRivi < this.koko &&
-                this.palautaRuutu(rivi, tempSarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
-            
+                this.palautaRuutu(tempRivi, sarake).kerroTyyppi() == tamaRuutu.kerroTyyppi()) {
+            samoja++;
+            samaaSuuntiin[3]++;
+            tempRivi++;
         }
         
         // Vaakaruutujen lisäys poistettaviin
@@ -125,6 +128,13 @@ public class Peliruudukko {
             for (int i = sarake - samaaSuuntiin[0]; i <= sarake + samaaSuuntiin[1]; i++) {
                 poistettavatRuudut.add(new Point(rivi, i));
                 
+            }
+        }
+        
+        // Pystyruudut poistettaviin:
+        if (samaaSuuntiin[2] + samaaSuuntiin[3] >= 2) {
+            for (int i = rivi - samaaSuuntiin[2]; i <= rivi + samaaSuuntiin[3]; i++) {
+                poistettavatRuudut.add(new Point(i, sarake));
             }
         }
         
@@ -146,10 +156,10 @@ public class Peliruudukko {
     }
     
     // Metodi, joka katsoo onko pelaajan antama siirto mahdollinen
-    public boolean siirtoMahdollinen(int x1, int y1, int x2, int y2) {
+    public boolean siirtoMahdollinen(int rivi1, int sarake1, int rivi2, int sarake2) {
         boolean onOK = true;
-        int arvo1 = sisalto[x1][y1].kerroTyyppi();
-        int arvo2 = sisalto[x1][y2].kerroTyyppi();
+        int arvo1 = sisalto[rivi1][sarake1].kerroTyyppi();
+        int arvo2 = sisalto[rivi2][sarake2].kerroTyyppi();
         
         // Saman tyypin ruutuja ei voi vaihtaa keskenään
         if (arvo1 == arvo2) {
