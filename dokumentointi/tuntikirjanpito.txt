@@ -16,3 +16,13 @@ Ke 6.11
 To 7.11
  - 3h Jatkoa edelliseen, lisää perustoiminnallisuutta, muutama testi, ja asioiden opettelua ja kertausta
 
+
+Ma 11.11.
+ - 1h perustoiminnallisuutta
+Ti 12.11.
+ - 2,5h Siirronkäsittelyä, Point-luokan löytäminen käytettäväksi
+Ke 13.11.
+ - 2h Vähän eteenpäin sekalaista...
+To 14.11.
+ - 2h Tekstikäyttöliittymän edistämistä, muuta tutkimista ja kiireessä
+palautukseen viimeistelyn yrittämistä
