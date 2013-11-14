@@ -108,10 +108,11 @@ public class PeliruudukkoTest {
         assertEquals(0, poistetunTyyppi);
     }
     
+    @Test
     public void toimiikoUseanRuudunPoisto() {
         ArrayList<Point> poistettavat = new ArrayList<Point>();
         poistettavat.add(new Point(0, 0));
-        poistettavat.add(new Point(3, 2));
+        poistettavat.add(new Point(3, 3));
         poistettavat.add(new Point(5, 5));
         ruudukko.poistaRuudut(poistettavat);
         int[] oikea = {0,0,0};
@@ -121,5 +122,17 @@ public class PeliruudukkoTest {
         poistetut[2] = ruudukko.palautaRuutu(5, 5).kerroTyyppi();
         assertArrayEquals(oikea, poistetut);
     }
+    
+    //Testataan yksittäinen ruutu vain
+    @Test
+    public void ToimiikoVaihtoJaPoistoYhdessa() {
+        boolean boo = ruudukko.vaihdaRuudut(0, 0, 1, 0);
+        int x = ruudukko.kasitteleRuutu(1, 1);
+        ruudukko.teePoisto();
+        int poistetunTyyppi = ruudukko.palautaRuutu(3, 1).kerroTyyppi();
+        assertEquals(0, poistetunTyyppi);
+    }
+    
+    
     
 }
