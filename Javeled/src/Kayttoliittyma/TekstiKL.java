@@ -38,18 +38,6 @@ public class TekstiKL {
         
         tulostaRuudukko(ruudukko);
         
-        
-        
-        boolean boo = ruudukko.vaihdaRuudut(0, 0, 1, 0);
-        System.out.println(boo);
-        tulostaRuudukko(ruudukko);
-        
-        int x = ruudukko.kasitteleRuutu(1, 1);
-        ruudukko.teePoisto();
-        
-        System.out.println("Käsittelyn jälkeen:");
-        tulostaRuudukko(ruudukko);
-        
         lueKomentoja();
         
         /*
