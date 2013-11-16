@@ -185,7 +185,7 @@ public class Peliruudukko {
         if (poistettavatRuudut != null) {
             poistaRuudut(poistettavatRuudut);
         }
-        poistettavatRuudut = null;
+        poistettavatRuudut.clear();
     }
     
 }
