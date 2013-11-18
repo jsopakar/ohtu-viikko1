@@ -49,7 +49,7 @@ public class Peliruudukko {
         Ruutu[][] uusiSisalto = new Ruutu[koko][koko];
         int[][] numerot  =
             { { 1, 1, 3, 2, 2, 1 },
-            { 1, 2, 1, 1, 2, 3 },
+            { 2, 1, 1, 1, 2, 3 },
             { 2, 1, 3, 2, 3, 3 },
             { 2, 1, 1, 3, 1, 1 },
             { 3, 3, 2, 2, 1, 1 },
