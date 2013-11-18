@@ -33,7 +33,7 @@ public class TekstiKL {
         System.out.println("Testipeli:");
         System.out.println("Luodaan kenttä:");
         
-        Pelitaso peli = new Pelitaso();
+        Pelitaso peli = new Pelitaso(0);
         ruudukko = peli.getRuudukko();
         
         tulostaRuudukko(ruudukko);

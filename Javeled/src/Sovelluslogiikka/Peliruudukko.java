@@ -62,6 +62,23 @@ public class Peliruudukko {
         }
         this.sisalto = uusiSisalto;
     }
+    public void taytaEsimerkkiPelattavaRuudukko() {
+        Ruutu[][] uusiSisalto = new Ruutu[koko][koko];
+        int[][] numerot  =
+          { { 1, 1, 3, 2, 2, 1 },
+            { 1, 2, 1, 1, 2, 3 },
+            { 2, 1, 3, 2, 3, 3 },
+            { 2, 1, 1, 3, 1, 1 },
+            { 3, 3, 2, 2, 1, 1 },
+            { 1, 2, 3, 1, 2, 3 } };
+        
+        for (int i = 0; i<koko; i++) {
+            for (int j = 0; j<koko; j++) {
+                uusiSisalto[i][j] = new Ruutu(numerot[i][j]);
+            }
+        }
+        this.sisalto = uusiSisalto;
+    }
     
     // Koordinaatiston suunta ja mietittävä, ei ehkä lopullinen...
     public Ruutu palautaRuutu(int rivi, int sarake) {

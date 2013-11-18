@@ -19,11 +19,27 @@ public class Pelitaso {
     
     private Peliruudukko ruudukko;
     
+    // Ilman parametria luodaan testikäyttöön esimerkkiruudukko
     public Pelitaso() {
         
         ruudukko = new Peliruudukko(tempTestikoko);
         ruudukko.taytaEsimerkkiruudukkoTesteihin();
         //ruudukko.taytaRuudukkoSatunnaisesti();
+    }
+    
+    public Pelitaso(int kentta) {
+        ruudukko = new Peliruudukko(tempTestikoko);
+        switch (kentta) {
+            case 0:     //Pelattavaruudukko
+                ruudukko.taytaEsimerkkiPelattavaRuudukko();
+                break;
+            case -1:    //Testiruudukko
+                ruudukko.taytaEsimerkkiruudukkoTesteihin();
+                break;
+            default:
+                ruudukko.taytaEsimerkkiPelattavaRuudukko();
+                break;
+        }
     }
     
     public Peliruudukko getRuudukko() {
