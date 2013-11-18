@@ -99,6 +99,15 @@ public class TekstiKL {
                     System.out.println("Ruudukon tila:");
                     tulostaRuudukko(ruudukko);
                     break;
+                case 'P':    // poista tyhjät
+                    System.out.println("Poistetaan tyhjät ruudut");
+                    ruudukko.taytaTyhjatRuudut();
+                    //ruudukko.taytaRuutu(1, 2);
+                    tulostaRuudukko(ruudukko);
+                    break;
+                case 'N':   // yksittäisen ruudun nollaus
+                    lueNollaus();
+                    break;
                 case 'L':   //lopetus
                     System.out.println("Lopetataan.");
                     lopeta = true;
@@ -116,6 +125,8 @@ public class TekstiKL {
         sarake1 = Integer.parseInt(lukija.nextLine());
         System.out.println("Käsitellään: " + rivi1 + ", " + sarake1);
         int tulos = ruudukko.kasitteleRuutu(rivi1, sarake1);
+        ruudukko.teePoisto();
+        tulostaRuudukko(ruudukko);
     }
     
     private void lueSiirronKasittely() {
@@ -133,6 +144,16 @@ public class TekstiKL {
             tulostaRuudukko(ruudukko);
         }
         
+    }
+    
+    private void lueNollaus() {
+        int rivi1, sarake1;
+        System.out.println("Anna rivi ja sarake: ");
+        rivi1 = Integer.parseInt(lukija.nextLine());
+        sarake1 = Integer.parseInt(lukija.nextLine());
+        System.out.println("Nollataan: " + rivi1 + ", " + sarake1);
+        ruudukko.poistaRuutu(rivi1, sarake1);
+        tulostaRuudukko(ruudukko);
     }
     
 }

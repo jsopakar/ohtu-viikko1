@@ -188,4 +188,36 @@ public class Peliruudukko {
         poistettavatRuudut.clear();
     }
     
+    public void taytaTyhjatRuudut() {
+        for (int i = 0; i<koko; i++) {
+            for (int j = 0; j<koko; j++) {
+                if (sisalto[i][j].kerroTyyppi() == 0) {
+                    taytaRuutu(i, j);
+                }
+            }
+        }
+    }
+    
+    public Ruutu taytaRuutu(int rivi, int sarake) {
+        Ruutu palautettava;
+        if (rivi <0) {
+            palautettava = arvoSatunnainenRuutu();
+        } else {
+            
+            palautettava = sisalto[rivi][sarake];
+            sisalto[rivi][sarake] = taytaRuutu(rivi-1, sarake);
+            if (palautettava.kerroTyyppi() == 0) {
+                palautettava = sisalto[rivi][sarake];
+            }
+//            palautettava = sisalto[rivi][sarake];
+        }
+        
+        return palautettava;
+    }
+    
+    // TODO: Palauttaa vain tyypin 5 ruudun, muutettava satunnaiseksi
+    public Ruutu arvoSatunnainenRuutu() {
+        return new Ruutu(5);
+    }
+    
 }
