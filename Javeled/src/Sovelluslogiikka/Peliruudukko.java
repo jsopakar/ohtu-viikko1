@@ -45,11 +45,11 @@ public class Peliruudukko {
     // tai myös tiedostosta luettu erikoisempi pelimuoto.
     
     //
-    public void taytaEsimerkkiruudukko() {
+    public void taytaEsimerkkiruudukkoTesteihin() {
         Ruutu[][] uusiSisalto = new Ruutu[koko][koko];
         int[][] numerot  =
-            { { 1, 1, 3, 2, 2, 2 },
-            { 2, 1, 1, 1, 2, 3 },
+            { { 1, 1, 3, 2, 2, 1 },
+            { 1, 2, 1, 1, 2, 3 },
             { 2, 1, 3, 2, 3, 3 },
             { 2, 1, 1, 3, 1, 1 },
             { 3, 3, 2, 2, 1, 1 },
@@ -148,7 +148,9 @@ public class Peliruudukko {
             Ruutu r2 = sisalto[rivi2][sarake2];
             sisalto[rivi1][sarake1] = r2;
             sisalto[rivi2][sarake2] = r1;
-            
+            int eka = kasitteleRuutu(rivi1, sarake1);
+            int toka = kasitteleRuutu(rivi2, sarake2);
+
             return true;
         } else {
             return false;

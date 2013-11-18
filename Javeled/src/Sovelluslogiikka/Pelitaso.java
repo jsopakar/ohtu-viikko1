@@ -22,7 +22,7 @@ public class Pelitaso {
     public Pelitaso() {
         
         ruudukko = new Peliruudukko(tempTestikoko);
-        ruudukko.taytaEsimerkkiruudukko();
+        ruudukko.taytaEsimerkkiruudukkoTesteihin();
         //ruudukko.taytaRuudukkoSatunnaisesti();
     }
     

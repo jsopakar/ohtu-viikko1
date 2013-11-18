@@ -35,7 +35,7 @@ public class PeliruudukkoTest {
     @Before
     public void setUp() {
         ruudukko = new Peliruudukko(6);
-        ruudukko.taytaEsimerkkiruudukko();
+        ruudukko.taytaEsimerkkiruudukkoTesteihin();
     }
     
     @After
@@ -133,6 +133,20 @@ public class PeliruudukkoTest {
         assertEquals(0, poistetunTyyppi);
     }
     
+    //Testataan toimiiko tyhjän tilan täyttö
+    @Test
+    public void ToimiikoTyhjanTilanTaytto() {
+        ruudukko.kasitteleRuutu(1, 1);
+        ruudukko.taytaRuutu(2, 1);
+        int[] oikea = {5,1,1,1};
+        int[] poistetut = new int[4];
+        poistetut[0] = ruudukko.palautaRuutu(0, 1).kerroTyyppi();
+        poistetut[1] = ruudukko.palautaRuutu(1, 1).kerroTyyppi();
+        poistetut[2] = ruudukko.palautaRuutu(2, 1).kerroTyyppi();
+        poistetut[3] = ruudukko.palautaRuutu(3, 1).kerroTyyppi();
+        assertArrayEquals(oikea, poistetut);
+        
+    }
     
     
 }
