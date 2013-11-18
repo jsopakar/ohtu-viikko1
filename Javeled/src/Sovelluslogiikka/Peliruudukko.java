@@ -167,7 +167,13 @@ public class Peliruudukko {
             sisalto[rivi2][sarake2] = r1;
             int eka = kasitteleRuutu(rivi1, sarake1);
             int toka = kasitteleRuutu(rivi2, sarake2);
-
+            
+            if (!poistettavatRuudut.isEmpty()) {
+                teePoisto();
+            } else {
+                // TODO: Tähän reagointi siihen, jos siirto ei aiheuttaisi poistoja!
+            }
+            
             return true;
         } else {
             return false;

@@ -101,8 +101,8 @@ public class TekstiKL {
                     break;
                 case 'P':    // poista tyhjät
                     System.out.println("Poistetaan tyhjät ruudut");
-                    //ruudukko.taytaTyhjatRuudut();
-                    ruudukko.taytaRuutu(2, 1);
+                    ruudukko.taytaTyhjatRuudut();
+                    //ruudukko.taytaRuutu(2, 1);
                     tulostaRuudukko(ruudukko);
                     break;
                 case 'N':   // yksittäisen ruudun nollaus
