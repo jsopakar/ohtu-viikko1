@@ -159,21 +159,27 @@ public class Peliruudukko {
             
     }
     
+    public boolean vaihdaRuudut(int rivi1, int sarake1, int rivi2, int sarake2, boolean teePoisto) {
+        boolean vaihdettu = vaihdaRuudut(rivi1, sarake1, rivi2, sarake2);
+        if (teePoisto) {
+            int eka = kasitteleRuutu(rivi1, sarake1);
+            int toka = kasitteleRuutu(rivi2, sarake2);
+            if (!poistettavatRuudut.isEmpty()) {
+                teePoisto();
+            } else {
+                // TODO: Tähän reagointi siihen, jos siirto ei aiheuttaisi poistoja!
+            }
+        }
+        return vaihdettu;
+    }
+    
+    // Metodi joka vain vaihtaa ruudut, ei vielä tarkastele osumia tai poistoja
     public boolean vaihdaRuudut(int rivi1, int sarake1, int rivi2, int sarake2) {
         if (siirtoMahdollinen(rivi1, sarake1, rivi2, sarake2)) {
             Ruutu r1 = sisalto[rivi1][sarake1];
             Ruutu r2 = sisalto[rivi2][sarake2];
             sisalto[rivi1][sarake1] = r2;
             sisalto[rivi2][sarake2] = r1;
-            int eka = kasitteleRuutu(rivi1, sarake1);
-            int toka = kasitteleRuutu(rivi2, sarake2);
-            
-            if (!poistettavatRuudut.isEmpty()) {
-                teePoisto();
-            } else {
-                // TODO: Tähän reagointi siihen, jos siirto ei aiheuttaisi poistoja!
-            }
-            
             return true;
         } else {
             return false;

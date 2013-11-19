@@ -1,4 +1,4 @@
-Ohjelmoinnin harjoitustyön tuntikirjanpito
+﻿Ohjelmoinnin harjoitustyön tuntikirjanpito
 
 Ennen kurssin alkua, 5-10h sekalaista esitietokertausta, mm. mooc-kertaustehtävien avulla.
 
@@ -31,4 +31,5 @@ La 16.11.
  - 2h Gitin asennus kotikoneelle, ja säätöä että kotiläppäriltä voi neatbeansilla koodata myös
 Ma 18.11.
  - 3h Perustoiminnallisuutta lisää, testien esimerkkiruudukon eriyttämistä varsinaisesta peliruudukosta. Ruutujen vaihto nyt myös käsittelee ja nollaa ruudut oikein.
-
+TI 19.11.
+ - 1h pelilogiikan siirtoa ruudukosta pelikenttään

@@ -62,4 +62,14 @@ public class Pelitaso {
     public void vahennaSiirto() {
         this.siirtojaJaljella--;
     }
+    
+    // Pääasiallinen metodikutsu pelisiirrolle
+    public boolean teeSiirto(int rivi1, int sarake1, int rivi2, int sarake2) {
+        boolean tehty = false;
+        tehty = ruudukko.vaihdaRuudut(rivi1, sarake1, rivi2, sarake2, true);
+        if (tehty) {
+            vahennaSiirto();
+        }
+        return tehty;
+    }
 }

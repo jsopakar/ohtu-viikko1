@@ -120,6 +120,25 @@ public class TekstiKL {
         }
     }
     
+    private void lueSiirronKasittely() {
+        int rivi1, sarake1, rivi2, sarake2;
+        System.out.println("Anna siirrettävän ruudun rivi ja sarake:");
+        rivi1 = Integer.parseInt(lukija.nextLine());
+        sarake1 = Integer.parseInt(lukija.nextLine());
+        System.out.println("Anna kohderuudun rivi ja sarake");
+        rivi2 = Integer.parseInt(lukija.nextLine());
+        sarake2 = Integer.parseInt(lukija.nextLine());
+        //boolean tulos = ruudukko.vaihdaRuudut(rivi1, sarake1, rivi2, sarake2);
+        boolean tulos = peli.teeSiirto(rivi1, sarake1, rivi2, sarake2);
+        if (!tulos) {
+            System.out.println("Siirto ei mahdollinen!");
+        } else {
+            //peli.vahennaSiirto();
+            tulostaRuudukko(ruudukko);
+        }
+    }
+
+    // Testikäyttöön, ei varsinaista peliä
     private void lueRuudunKasittely() {
         int rivi1, sarake1;
         System.out.println("Anna rivi ja sarake: ");
@@ -131,23 +150,7 @@ public class TekstiKL {
         tulostaRuudukko(ruudukko);
     }
     
-    private void lueSiirronKasittely() {
-        int rivi1, sarake1, rivi2, sarake2;
-        System.out.println("Anna siirrettävän ruudun rivi ja sarake:");
-        rivi1 = Integer.parseInt(lukija.nextLine());
-        sarake1 = Integer.parseInt(lukija.nextLine());
-        System.out.println("Anna kohderuudun rivi ja sarake");
-        rivi2 = Integer.parseInt(lukija.nextLine());
-        sarake2 = Integer.parseInt(lukija.nextLine());
-        boolean tulos = ruudukko.vaihdaRuudut(rivi1, sarake1, rivi2, sarake2);
-        if (!tulos) {
-            System.out.println("Siirto ei mahdollinen!");
-        } else {
-            peli.vahennaSiirto();
-            tulostaRuudukko(ruudukko);
-        }
-    }
-    
+    // Testikäyttöön, ei varsinaista peliä
     private void lueNollaus() {
         int rivi1, sarake1;
         System.out.println("Anna rivi ja sarake: ");
