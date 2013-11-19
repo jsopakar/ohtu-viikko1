@@ -21,6 +21,7 @@ import java.util.Scanner;
 
 public class TekstiKL {
     
+    Pelitaso peli;
     Peliruudukko ruudukko;
     Scanner lukija = new Scanner(System.in);
     
@@ -33,7 +34,7 @@ public class TekstiKL {
         System.out.println("Testipeli:");
         System.out.println("Luodaan kenttä:");
         
-        Pelitaso peli = new Pelitaso(0);
+        peli = new Pelitaso(0);
         ruudukko = peli.getRuudukko();
         
         tulostaRuudukko(ruudukko);
@@ -81,19 +82,20 @@ public class TekstiKL {
         
         boolean lopeta = false;
         while (!lopeta) {
-            System.out.println("Anna komento: ");
+            int siirtoja = peli.siirtojaJaljella();
+            System.out.println("Anna komento: (" + siirtoja + " siirtoa jäljellä)");
             String komento = lukija.nextLine();
             if (komento.equals("")) {
                 lopeta = true;
                 break;
             }
-            char kirjain = komento.charAt(0);
+            char kirjain = komento.toUpperCase().charAt(0);
             switch (kirjain) {
+                case 'S':   // S=Siirron tekeminen, varsinainen pelitoiminto
+                    lueSiirronKasittely();
+                    break;
                 case 'K':   // K=käsittele
                     lueRuudunKasittely();
-                    break;
-                case 'V':   // V=vaihto
-                    lueSiirronKasittely();
                     break;
                 case 'T':   // Peliruudukon tulostus
                     System.out.println("Ruudukon tila:");
@@ -141,9 +143,9 @@ public class TekstiKL {
         if (!tulos) {
             System.out.println("Siirto ei mahdollinen!");
         } else {
+            peli.vahennaSiirto();
             tulostaRuudukko(ruudukko);
         }
-        
     }
     
     private void lueNollaus() {

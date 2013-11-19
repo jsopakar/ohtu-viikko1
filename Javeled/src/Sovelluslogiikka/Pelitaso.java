@@ -16,8 +16,12 @@ package Sovelluslogiikka;
 public class Pelitaso {
     
     private int tempTestikoko = 6;
+    private int maksimiSiirtomaara = 10;
     
     private Peliruudukko ruudukko;
+    private int siirtojaJaljella = maksimiSiirtomaara;
+    
+    
     
     // Ilman parametria luodaan testikäyttöön esimerkkiruudukko
     public Pelitaso() {
@@ -42,8 +46,20 @@ public class Pelitaso {
         }
     }
     
+    public Pelitaso(int kentta, int siirtomaara) {
+        this(kentta);
+        this.maksimiSiirtomaara = siirtomaara;
+    }
+    
     public Peliruudukko getRuudukko() {
         return this.ruudukko;
     }
-       
+    
+    public int siirtojaJaljella() {
+        return this.siirtojaJaljella;
+    }
+    
+    public void vahennaSiirto() {
+        this.siirtojaJaljella--;
+    }
 }
