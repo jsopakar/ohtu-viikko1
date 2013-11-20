@@ -5,14 +5,13 @@
 package Sovelluslogiikka;
 
 /**
- *
- * @author jsopakar
- */
-
-/* Luokkarunko pelitasolle, joka tulee sisältämään yhden Peliruudukon,
+ * Luokkarunko pelitasolle, joka tulee sisältämään yhden Peliruudukon,
  * ja muut kyseiseen tasoon liittyvät tiedot, kuten vuoromäärän, pistelaskun,
  * ja tiedon siitä milloin taso on läpäisty.
+ * 
+ * @author 012616660
  */
+
 public class Pelitaso {
     
     private int tempTestikoko = 6;
@@ -24,6 +23,9 @@ public class Pelitaso {
     
     
     // Ilman parametria luodaan testikäyttöön esimerkkiruudukko
+    /**
+     * Oletuskonstruktori, joka luo pelitason esimerkkitestiruudukolla
+     */
     public Pelitaso() {
         
         ruudukko = new Peliruudukko(tempTestikoko);
@@ -31,6 +33,11 @@ public class Pelitaso {
         //ruudukko.taytaRuudukkoSatunnaisesti();
     }
     
+    /**
+     * Kuormitettu konstruktori, jolla voi määritellä millainen kenttä ladataan
+     * 
+     * @param kentta kentän numero, 0=oletuspeli, -1=testausruudukko
+     */
     public Pelitaso(int kentta) {
         ruudukko = new Peliruudukko(tempTestikoko);
         switch (kentta) {
@@ -46,24 +53,49 @@ public class Pelitaso {
         }
     }
     
+    /**
+     * Kuormitettu konstruktori, jolle voi myös antaa pelitason maksimisiirtomäärän.
+     * 
+     * @param kentta kentän numero, 0=oletuspeli, -1=testausruudukko
+     * @param siirtomaara maksimisiirtomäärä
+     */
     public Pelitaso(int kentta, int siirtomaara) {
         this(kentta);
         this.maksimiSiirtomaara = siirtomaara;
     }
     
+    /**
+     * 
+     * @return Peliruudukko
+     */
     public Peliruudukko getRuudukko() {
         return this.ruudukko;
     }
     
+    /**
+     *
+     * @return Jäljellä oleva siirtomäärä
+     */
     public int siirtojaJaljella() {
         return this.siirtojaJaljella;
     }
     
+    /**
+     * Metodi, joka vähentää jäljellä olevia siirtoja yhdellä. Kutsutaan hyväksytyn siirron yhteydessä.
+     */
     public void vahennaSiirto() {
         this.siirtojaJaljella--;
     }
     
-    // Pääasiallinen metodikutsu pelisiirrolle
+    /**
+     * Varsinainen pelisiirron tekevä metodikutsu, jota käyttöliittymän on tarkoitus kutsua.
+     * 
+     * @param rivi1 ensimmäisen siirrettävän ruudun rivi
+     * @param sarake1 ensimmäisen siirrettävän ruudun sarake
+     * @param rivi2 toisen siirrettävän ruudun rivi
+     * @param sarake2 toisen siirrettävän ruudun saraka
+     * @return tieto, tehtiinkö siirto onnistuneesti
+     */
     public boolean teeSiirto(int rivi1, int sarake1, int rivi2, int sarake2) {
         boolean tehty = false;
         tehty = ruudukko.vaihdaRuudut(rivi1, sarake1, rivi2, sarake2, true);

@@ -10,14 +10,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
- * @author jsopakar
- */
-
 /* Luokka tekstipohjaiselle käyttöliittymälle, lähinnä pelin rakennus-
  * ja testausvaiheeseen. Myöhemmin toiminnallisuus tulee siirtymään
  * graafisen käyttöliittymäluokan taakse.
+ *
+ * @author 012616660
  */
+
 
 public class TekstiKL {
     
@@ -25,10 +24,21 @@ public class TekstiKL {
     Peliruudukko ruudukko;
     Scanner lukija = new Scanner(System.in);
     
+    /**
+     *
+     */
     public TekstiKL() {
         
     }
     
+    /**
+     * Testipelin toteutusrunko, joka luo pelitason, ja kutsuu komentoja
+     * erikseen lukevia ja tulkitsevia metodeja.
+     * <p>
+     * Mitään virheenkäsittelyä annetulle syötteelle ei tehdä, koska
+     * tekstikäyttöliittymän on tarkoitus jäädä tilapäiseksi ja lähinnä
+     * pelin testausta varten olevaksi.
+     */
     public void testipeli() {
         
         System.out.println("Testipeli:");
