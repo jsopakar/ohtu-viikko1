@@ -8,12 +8,13 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 /**
- *
- * @author jsopakar
- */
-
-/* Runko peliruudukolle, joka tulee sisältämään taulukon tms. Ruutu-olioita.
+ * Runko peliruudukolle, jonka keskeinen tietosisältö on kaksiulotteinen
+ * taulukko Ruutu-olioita.
+ * <p>
+ * Tämä luokka sisältää suurimman osan sovelluslogiikasta. Ruutujen vaihtoon ja
+ * käsittelyyn liittyen.
  * 
+ * @author 012616660
  */
 public class Peliruudukko {
     
@@ -25,11 +26,20 @@ public class Peliruudukko {
     private ArrayList<Point> poistettavatRuudut =
             new ArrayList<Point>();
     
+    /**
+     * Konstruktori, joka alustaa ruudukon halutun kokoiseksi. 
+     * <p>
+     * Pysty- ja vaakakoko ovat samat.
+     * @param koko ruudukon koko 
+     */
     public Peliruudukko(int koko) {
         this.koko = koko;
         sisalto = new Ruutu[koko][koko];
     }
     
+    /**
+     * Metodi, joka täyttää ruudukon satunnaisilla ruututyypeillä.
+     */
     public void taytaRuudukkoSatunnaisesti() {
         for (int i = 0; i<koko; i++) {
             for (int j = 0; j<koko; j++ ) {
@@ -44,7 +54,12 @@ public class Peliruudukko {
     // mahdollisuus palauttaa joku esimerkkiruudukko, satunnainen oletuskoko,
     // tai myös tiedostosta luettu erikoisempi pelimuoto.
     
-    //
+    /**
+     * Metodi, joka täyttää ruudukon ennalta määritellyillä ruututyypeillä.
+     * <p>
+     * Tämä on tarkoitettu lähinnä JUnit-testien käyttöön, ei pelisisällöksi varsinaisesti.
+     * Sisältää valmiiksi poistuvia ruutumuodostelmia.
+     */
     public void taytaEsimerkkiruudukkoTesteihin() {
         Ruutu[][] uusiSisalto = new Ruutu[koko][koko];
         int[][] numerot  =
@@ -62,6 +77,13 @@ public class Peliruudukko {
         }
         this.sisalto = uusiSisalto;
     }
+    
+    /**
+     * Metodi, joka täyttää ruudukon esimerkkipelillä.
+     * <p>
+     * Erotuksena testiruudukkoon, tämä ei sisällä valmiiksi poistuvia yhdistelmiä,
+     * ja tätä voidaan käyttää uutena pelinä.
+     */
     public void taytaEsimerkkiPelattavaRuudukko() {
         Ruutu[][] uusiSisalto = new Ruutu[koko][koko];
         int[][] numerot  =
@@ -80,11 +102,20 @@ public class Peliruudukko {
         this.sisalto = uusiSisalto;
     }
     
-    // Koordinaatiston suunta ja mietittävä, ei ehkä lopullinen...
+    /**
+     * Palauttaa halutun kohdan Ruutu-olion.
+     * @param rivi halutun ruudun rivi
+     * @param sarake halutun ruudun sarake
+     * @return Ruutu-olio
+     */
     public Ruutu palautaRuutu(int rivi, int sarake) {
         return sisalto[rivi][sarake];
     }
     
+    /**
+     * 
+     * @return Ruudukon koko
+     */
     public int kerroKoko() {
         return this.koko;
     }
@@ -93,6 +124,21 @@ public class Peliruudukko {
     // ja pilkkomisen fiksuihin osametodeihin. 
     
     //public void kasitteleRuutu(int x, int y) {
+    /**
+     * Metodi, joka hoitaa varsinaisen ydintoiminnon, eli laskennan halutun
+     * ruudun ympäriltä.
+     * <p>
+     * Aluksi lasketaan ruudun ympäriltä joka suunnalta, kuinka monta samaa tyyppiä
+     * löytyy. Tämän tiedon pohjalta sitten lisätään poistettavatRuudut-olioon
+     * kaikki kriteerit täyttävät oliot, eli suuntaansa on oltava 3 samaa tyyppiä,
+     * jotta ne halutaan poistaa.
+     * <p>
+     * Selvitettävä vielä, miten tätä olisi järkevä pilkkoa pienempiin osiin.
+     * 
+     * @param rivi käsiteltävän ruudun rivi
+     * @param sarake käsiteltävän ruudun sarake
+     * @return tieto kuinka monta ruutua merkataan poistettavaksi
+     */
     public int kasitteleRuutu(int rivi, int sarake) { // tilapäisesti palauttaa samojen ruutujen määrän
         
         int samoja = 1;
@@ -159,6 +205,40 @@ public class Peliruudukko {
             
     }
     
+    /**
+     * Metodi, joka vaihtaa kaksi ruutua keskenään.
+     * <p>
+     * Tämä metodi ei ota mitään kantaa osumien tarkasteluun tai ruutujen poistoon.
+     * 
+     * @param rivi1 ensimmäisen vaihdettavan ruudun rivi
+     * @param sarake1 ensimmäisen vaihdettavan ruudun sarake
+     * @param rivi2 toisen vaihdettavan ruudun rivi
+     * @param sarake2 toisen vaihdettavan ruudun sarake
+     * @return tieto onnistuiko vaihtaminen
+     */
+    public boolean vaihdaRuudut(int rivi1, int sarake1, int rivi2, int sarake2) {
+        if (siirtoMahdollinen(rivi1, sarake1, rivi2, sarake2)) {
+            Ruutu r1 = sisalto[rivi1][sarake1];
+            Ruutu r2 = sisalto[rivi2][sarake2];
+            sisalto[rivi1][sarake1] = r2;
+            sisalto[rivi2][sarake2] = r1;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * Kuormitettu metodi samannimisestä, jolle voi kertoa, tehdäänkö samalla
+     * kertaa myös poistokäsittely.
+     * 
+     * @param rivi1 ensimmäisen vaihdettavan ruudun rivi
+     * @param sarake1 ensimmäisen vaihdettavan ruudun sarake
+     * @param rivi2 toisen vaihdettavan ruudun rivi
+     * @param sarake2 toisen vaihdettavan ruudun sarake
+     * @param teePoisto suoritetaanko poistokutsu samalla.
+     * @return tieto onnistuiko vaihtaminen
+     */
     public boolean vaihdaRuudut(int rivi1, int sarake1, int rivi2, int sarake2, boolean teePoisto) {
         boolean vaihdettu = vaihdaRuudut(rivi1, sarake1, rivi2, sarake2);
         if (teePoisto) {
@@ -172,21 +252,21 @@ public class Peliruudukko {
         }
         return vaihdettu;
     }
-    
-    // Metodi joka vain vaihtaa ruudut, ei vielä tarkastele osumia tai poistoja
-    public boolean vaihdaRuudut(int rivi1, int sarake1, int rivi2, int sarake2) {
-        if (siirtoMahdollinen(rivi1, sarake1, rivi2, sarake2)) {
-            Ruutu r1 = sisalto[rivi1][sarake1];
-            Ruutu r2 = sisalto[rivi2][sarake2];
-            sisalto[rivi1][sarake1] = r2;
-            sisalto[rivi2][sarake2] = r1;
-            return true;
-        } else {
-            return false;
-        }
-    }
+
     
     // Metodi, joka katsoo onko pelaajan antama siirto mahdollinen
+    /**
+     * Metodi, joka tarkastaa onko käyttäjän antama siirto toteutettavissa.
+     * <p>
+     * Toistaiseksi tarkastaa pelkästään ettei vain siirretä samaa tyyppiä.
+     * Lisää tarkastelua tarvitaan.
+     * 
+     * @param rivi1 ensimmäisen vaihdettavan ruudun rivi
+     * @param sarake1 ensimmäisen vaihdettavan ruudun sarake
+     * @param rivi2 toisen vaihdettavan ruudun rivi
+     * @param sarake2 toisen vaihdettavan ruudun sarake
+     * @return tieto siitä onko siirto mahdollinen
+     */
     public boolean siirtoMahdollinen(int rivi1, int sarake1, int rivi2, int sarake2) {
         boolean onOK = true;
         int arvo1 = sisalto[rivi1][sarake1].kerroTyyppi();
@@ -200,18 +280,31 @@ public class Peliruudukko {
         return onOK;
     }
     
-    /* Yksittäisen ruudun poistava metodi */
+    /**
+     * Yksittäisen ruudun poistava metodi
+     * @param sarake poistettavan ruudun sarake
+     * @param rivi poistettavan ruudun rivi
+     */
     public void poistaRuutu(int sarake, int rivi) {
         this.sisalto[sarake][rivi] = new Ruutu(0);
     }
     
+    /**
+     * Useamman ruudun poiston toteuttava metodi.
+     * 
+     * @param poistettavat ArrayList Point-oliota, jotka sisältävät koordinaatit
+     */
     public void poistaRuudut(ArrayList<Point> poistettavat) {
         for ( Point p : poistettavat) {
             poistaRuutu(p.x, p.y);
         }
     }
     
-    // Tilapäinen rakennusvaiheen metodi varmaan...
+    /**
+     * Metodi, jolla hoidetaan siihen mennessä poistetuksi merkittävien ruutujen
+     * poisto.
+     * 
+     */
     public void teePoisto() {
         if (poistettavatRuudut != null) {
             poistaRuudut(poistettavatRuudut);
@@ -219,6 +312,11 @@ public class Peliruudukko {
         poistettavatRuudut.clear();
     }
     
+    /**
+     * Metodi, joka käy koko taulukon läpi, ja täyttää tyhjät ruudut.
+     * <p>
+     * Kutsuu taytaRuutu-metodia joka kohdassa, jossa löytyy 0-tyypin ruutu.
+     */
     public void taytaTyhjatRuudut() {
         for (int i = 0; i<koko; i++) {
             for (int j = 0; j<koko; j++) {
@@ -229,10 +327,19 @@ public class Peliruudukko {
         }
     }
     
+    /**
+     * Metodi, jonka tarkoitus täyttää haluttu ruutu laskemalla sen yläpuolella olevia ruutuja yhdellä alaspäin.
+     * <p>
+     * Kutsuu rekursiivisesti itseään.
+     * 
+     * @param rivi käsiteltävän ruudun rivi
+     * @param sarake käsiteltävän ruudun sarake
+     * @return palauttaa kutsuttavan kohdan sisältämän ruudun
+     */
     public Ruutu taytaRuutu(int rivi, int sarake) {
         Ruutu palautettava;
         if (rivi <0) {
-            palautettava = arvoSatunnainenRuutu();
+            palautettava = arvoSatunnainenRuutu(3);
         } else {
             
             palautettava = sisalto[rivi][sarake];
@@ -246,9 +353,16 @@ public class Peliruudukko {
         return palautettava;
     }
     
-    // TODO: Palauttaa vain tyypin 5 ruudun, muutettava satunnaiseksi
-    public Ruutu arvoSatunnainenRuutu() {
-        return new Ruutu(5);
+    /**
+     * Metodi, joka arpoo satunnaisen ruudun.
+     * @param maksimi maksimiarvo ruututyypille.
+     * @return arvottu satunnainen ruutu
+     */
+    public Ruutu arvoSatunnainenRuutu(int maksimi) {
+        
+        int luku = (int)(Math.random() * maksimi) + 1; //satunnaisluku 1-3
+        return new Ruutu(luku);
+
     }
     
 }
