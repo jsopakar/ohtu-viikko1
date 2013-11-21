@@ -101,7 +101,17 @@ public class Pelitaso {
         tehty = ruudukko.vaihdaRuudut(rivi1, sarake1, rivi2, sarake2, true);
         if (tehty) {
             vahennaSiirto();
+            // siirronJalkikasittely(); Kunhan metodi tekee jotain...
         }
         return tehty;
+    }
+    
+    /**
+     * Metodi, joka suorittaa yksittäisen siirron jälkitarkastelun.
+     * <p>
+     * KESKEN
+     */
+    public void siirronJalkikasittely() {
+        ruudukko.taytaTyhjatRuudut();
     }
 }
