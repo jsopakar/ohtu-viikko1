@@ -365,4 +365,24 @@ public class Peliruudukko {
 
     }
     
+    /**
+     * Metodi, joka käy koko peliruudukon läpi, tarkastelee kaikki poistokriteerit
+     * täyttävät ruudut.
+     * <p>
+     * Tätä on tarkoitus kutsua ainakin sen jälkeen, kun tyhjät ruudut on täytetty,
+     * ja sitä kautta peliruudukkoon on voinut syntyä sattumanvaraisesti uusia
+     * 3:n tai enemmän kattavia saman tyypin alueita.
+     */
+    public void kasitteleKokoRuudukko() {
+        for (int i=0; i < koko; i++) {
+            for (int j=0; j < koko; j++) {
+                if (sisalto[i][j].kerroTyyppi() > 0) {
+                    if (kasitteleRuutu(i, j) > 0) {
+                        teePoisto();
+                    }
+                }
+            }
+        }
+    }
+    
 }

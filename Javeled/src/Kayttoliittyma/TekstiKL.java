@@ -127,6 +127,10 @@ public class TekstiKL {
                 case 'N':   // yksittäisen ruudun nollaus
                     lueNollaus();
                     break;
+                case 'X':   // Testitoiminto, debuggausvaiheen helpottamiseen
+                    ruudukko.kasitteleKokoRuudukko();
+                    tulostaRuudukko(ruudukko);
+                    break;
                 case 'O':   // ohjeen tulostus
                     tulostaOhje();
                     break;
@@ -159,7 +163,7 @@ public class TekstiKL {
         if (!tulos) {
             System.out.println("Siirto ei mahdollinen!");
         } else {
-            //peli.vahennaSiirto();
+            //ruudukko.taytaTyhjatRuudut();
             tulostaRuudukko(ruudukko);
         }
     }
