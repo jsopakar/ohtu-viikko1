@@ -62,6 +62,7 @@ public class Pelitaso {
     public Pelitaso(int kentta, int siirtomaara) {
         this(kentta);
         this.maksimiSiirtomaara = siirtomaara;
+        siirtojaJaljella = siirtomaara;
     }
     
     /**

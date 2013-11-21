@@ -136,19 +136,30 @@ public class PeliruudukkoTest {
     }
     
     //Testataan toimiiko tyhjän tilan täyttö
-    //@Test
-    // Testasi metodia, joka muuttui satunnaiseksi, ei voi testata tällä nyt
-    public void ToimiikoTyhjanTilanTaytto() {
+    @Test
+    public void ToimiikoKokoTyhjanTilanTaytto() {
         ruudukko.kasitteleRuutu(1, 1);
-        ruudukko.taytaRuutu(2, 1);
-        int[] oikea = {5,1,1,1};
-        int[] poistetut = new int[4];
-        poistetut[0] = ruudukko.palautaRuutu(0, 1).kerroTyyppi();
-        poistetut[1] = ruudukko.palautaRuutu(1, 1).kerroTyyppi();
-        poistetut[2] = ruudukko.palautaRuutu(2, 1).kerroTyyppi();
-        poistetut[3] = ruudukko.palautaRuutu(3, 1).kerroTyyppi();
-        assertArrayEquals(oikea, poistetut);
-        
+        //ruudukko.taytaRuutu(2, 1);
+        ruudukko.taytaTyhjatRuudut();
+        boolean kunnossa = false;
+        if (ruudukko.palautaRuutu(0, 1).kerroTyyppi() > 0 &&
+                ruudukko.palautaRuutu(1, 1).kerroTyyppi() > 0 && 
+                ruudukko.palautaRuutu(1, 3).kerroTyyppi() > 0 &&
+                ruudukko.palautaRuutu(3, 1).kerroTyyppi() > 0)    {
+            kunnossa = true;
+        }
+        assertEquals(true, kunnossa);
+    }
+    
+    @Test
+    public void toimiikoYlarivinTyhjanRuudunTaytto() {
+        ruudukko.kasitteleRuutu(1, 1);
+        ruudukko.taytaRuutu(0, 1);
+        boolean kunnossa = false;
+        if (ruudukko.palautaRuutu(0, 1).kerroTyyppi() > 0) {
+            kunnossa = true;
+        }
+        assertEquals(true, kunnossa);
     }
     
     
