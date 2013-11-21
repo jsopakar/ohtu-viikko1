@@ -33,3 +33,8 @@ Ma 18.11.
  - 3h Perustoiminnallisuutta lisää, testien esimerkkiruudukon eriyttämistä varsinaisesta peliruudukosta. Ruutujen vaihto nyt myös käsittelee ja nollaa ruudut oikein.
 TI 19.11.
  - 1h pelilogiikan siirtoa ruudukosta pelikenttään
+Ke 20.11.
+ - 2h Tekstikälin hiomista testauskelpoisemmaksi, javadocin kirjoittelua
+To 21.11.
+ - 2,5h Sekvenssikaavioita, selkeyttämistä katselmointia varten yms
+ 

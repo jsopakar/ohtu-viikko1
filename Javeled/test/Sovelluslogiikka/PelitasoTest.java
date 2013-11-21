@@ -51,6 +51,6 @@ public class PelitasoTest {
     @Test
     public void toimiikoPelitasonLuonninSiirtomaara() {
         Pelitaso peli = new Pelitaso(-1, 15);
-        assertEquals(14, peli.siirtojaJaljella());
+        assertEquals(15, peli.siirtojaJaljella());
     }
 }
