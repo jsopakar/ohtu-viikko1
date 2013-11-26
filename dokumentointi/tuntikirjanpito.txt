@@ -38,3 +38,6 @@ Ke 20.11.
 To 21.11.
  - 2,5h Sekvenssikaavioita, selkeyttämistä katselmointia varten yms
  
+Ti 26.11.
+ - 3h Pikkutoiminnallisuutta, sekä lisätty hyvin raakilevaiheessa oleva graafinen kälirunko
+
