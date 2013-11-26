@@ -18,6 +18,11 @@ import java.util.ArrayList;
  */
 public class Peliruudukko {
     
+    /**
+     * Vakio, joka kertoo kuinka monta eri perusruututyyppiä peliin kuuluu
+     */
+    private static int tyyppiMaara = 5;
+    
     private int koko;
     private Ruutu[][] sisalto;
     
@@ -43,7 +48,7 @@ public class Peliruudukko {
     public void taytaRuudukkoSatunnaisesti() {
         for (int i = 0; i<koko; i++) {
             for (int j = 0; j<koko; j++ ) {
-                int luku = (int)(Math.random() * 3) + 1; //satunnaisluku 1-3
+                int luku = (int)(Math.random() * tyyppiMaara) + 1;
                 sisalto[i][j] = new Ruutu(luku);
             }
         }
@@ -339,7 +344,7 @@ public class Peliruudukko {
     public Ruutu taytaRuutu(int rivi, int sarake) {
         Ruutu palautettava;
         if (rivi <0) {
-            palautettava = arvoSatunnainenRuutu(3);
+            palautettava = arvoSatunnainenRuutu();
         } else {
             
             palautettava = sisalto[rivi][sarake];
@@ -358,9 +363,9 @@ public class Peliruudukko {
      * @param maksimi maksimiarvo ruututyypille.
      * @return arvottu satunnainen ruutu
      */
-    public Ruutu arvoSatunnainenRuutu(int maksimi) {
+    public Ruutu arvoSatunnainenRuutu() {
         
-        int luku = (int)(Math.random() * maksimi) + 1; //satunnaisluku 1-3
+        int luku = (int)(Math.random() * tyyppiMaara) + 1;
         return new Ruutu(luku);
 
     }
