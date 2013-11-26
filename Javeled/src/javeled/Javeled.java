@@ -4,8 +4,10 @@
  */
 package javeled;
 
+import Kayttoliittyma.GraafinenKL;
 import Kayttoliittyma.TekstiKL;
 import Sovelluslogiikka.*;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -23,8 +25,12 @@ public class Javeled {
         
         // Pelitaso peli = new Pelitaso();
         
-        TekstiKL kl = new TekstiKL();
-        kl.testipeli();
+        //TekstiKL klT = new TekstiKL();
+        //klT.testipeli();
+
+        
+        GraafinenKL klG= new GraafinenKL();
+        SwingUtilities.invokeLater(klG);
         
     }
 }
