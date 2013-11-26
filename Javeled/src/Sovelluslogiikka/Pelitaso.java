@@ -17,6 +17,9 @@ public class Pelitaso {
     private int tempTestikoko = 6;
     private int maksimiSiirtomaara = 10;
     
+    /**
+     *
+     */
     private Peliruudukko ruudukko;
     private int siirtojaJaljella = maksimiSiirtomaara;
     
@@ -46,6 +49,10 @@ public class Pelitaso {
                 break;
             case -1:    //Testiruudukko
                 ruudukko.taytaEsimerkkiruudukkoTesteihin();
+                break;
+            case 1:     // Isompi ruudukko
+                ruudukko = new Peliruudukko(10);
+                ruudukko.taytaRuudukkoSatunnaisesti();
                 break;
             default:
                 ruudukko.taytaEsimerkkiPelattavaRuudukko();

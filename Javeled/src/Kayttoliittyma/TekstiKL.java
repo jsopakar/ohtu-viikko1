@@ -44,7 +44,7 @@ public class TekstiKL {
         tulostaOhje();
         System.out.println("Luodaan kenttä:");
         
-        peli = new Pelitaso(0);
+        peli = new Pelitaso(1);
         ruudukko = peli.getRuudukko();
         
         tulostaRuudukko(ruudukko);
