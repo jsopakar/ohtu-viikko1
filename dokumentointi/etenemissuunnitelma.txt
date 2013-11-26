@@ -15,9 +15,7 @@ Todennäköinen alun pisteenlasku tulee olemaan, että pelikentällä on merkattu tie
 
 Puuttuvia olennaisia vaiheita, suunnilleen toteutettavassa järjestyksessä:
 
-- Uuden satunnaisen kentän luontiin tarkastelu
 - Pistelasku, aluksi yksinkertaisella tasolla
-- Pelattavaksi kunnollinen hieman isompi kenttä, tyyppien kasvatus viiteen erilaiseen
 
 - Graafinen käyttöliittymä isona kokonaisuutena
 

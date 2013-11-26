@@ -17,9 +17,6 @@ public class Pelitaso {
     private int tempTestikoko = 6;
     private int maksimiSiirtomaara = 10;
     
-    /**
-     *
-     */
     private Peliruudukko ruudukko;
     private int siirtojaJaljella = maksimiSiirtomaara;
     

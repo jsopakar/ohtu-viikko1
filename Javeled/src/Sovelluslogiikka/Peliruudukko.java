@@ -48,10 +48,39 @@ public class Peliruudukko {
     public void taytaRuudukkoSatunnaisesti() {
         for (int i = 0; i<koko; i++) {
             for (int j = 0; j<koko; j++ ) {
-                int luku = (int)(Math.random() * tyyppiMaara) + 1;
-                sisalto[i][j] = new Ruutu(luku);
+                int tyyppi = arvoRuututyyppi();
+                while (!onKelvollinenUusiRuutu(i, j, tyyppi)) {
+                    tyyppi = arvoRuututyyppi();
+                }
+                sisalto[i][j] = new Ruutu(tyyppi);
             }
         }
+    }
+    
+    /**
+     * Metodi, joka tarkastaa onko uusi arvottu ruutu tyypiltään sellainen,
+     * joka ei aiheuta aiempien ruutujen kanssa poistoja.
+     * <p>
+     * Vertailee vain vasemmalta ylhäältä täytettyihin, olettaa että ruudukko
+     * täytetään kokonaan ruutu kerrallaan.
+     * @param rivi vertailtavan ruudun rivi
+     * @param sarake vertailtavan ruudun sarake
+     * @param uusiTyyppi vertailtavan ruudun testattava tyyppi
+     * @return tieto, onko testattava tyyppi sopiva tähän kohtaan ruudukkoa
+     */
+    public boolean onKelvollinenUusiRuutu(int rivi, int sarake, int uusiTyyppi) {
+        boolean onOk = true;
+        if (rivi > 1) {
+            if (sisalto[rivi-1][sarake].kerroTyyppi() == uusiTyyppi &&
+                    sisalto[rivi-2][sarake].kerroTyyppi() == uusiTyyppi)
+                onOk = false;
+        }
+        if (sarake > 1) {
+            if (sisalto[rivi][sarake-1].kerroTyyppi() == uusiTyyppi &&
+                    sisalto[rivi][sarake-2].kerroTyyppi() == uusiTyyppi)
+                onOk = false;
+        }
+        return onOk;
     }
     
     // Tilapäinen tapa palauttaa jokin ennalta määritelty peliruudukko
@@ -365,7 +394,7 @@ public class Peliruudukko {
      */
     public Ruutu arvoSatunnainenRuutu() {
         
-        int luku = (int)(Math.random() * tyyppiMaara) + 1;
+        int luku = arvoRuututyyppi();
         return new Ruutu(luku);
 
     }
@@ -388,6 +417,14 @@ public class Peliruudukko {
                 }
             }
         }
+    }
+    
+    /**
+     * Arpoo satunnaisen ruututyypin
+     * @return ruututyyppi
+     */
+    private int arvoRuututyyppi() {
+        return (int)(Math.random() * tyyppiMaara) + 1;
     }
     
 }
