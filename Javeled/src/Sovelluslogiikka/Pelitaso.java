@@ -20,6 +20,7 @@ public class Pelitaso {
     private Peliruudukko ruudukko;
     private int siirtojaJaljella = maksimiSiirtomaara;
     
+    private int vaadittuPistemaara;
     
     
     // Ilman parametria luodaan testikäyttöön esimerkkiruudukko
@@ -30,7 +31,8 @@ public class Pelitaso {
         
         ruudukko = new Peliruudukko(tempTestikoko);
         ruudukko.taytaEsimerkkiruudukkoTesteihin();
-        //ruudukko.taytaRuudukkoSatunnaisesti();
+        
+        this.vaadittuPistemaara = 20;
     }
     
     /**
@@ -103,6 +105,9 @@ public class Pelitaso {
      */
     public boolean teeSiirto(int rivi1, int sarake1, int rivi2, int sarake2) {
         boolean tehty = false;
+        if (!(siirtojaJaljella > 0)) {
+            return false;
+        }
         tehty = ruudukko.vaihdaRuudut(rivi1, sarake1, rivi2, sarake2, true);
         if (tehty) {
             vahennaSiirto();

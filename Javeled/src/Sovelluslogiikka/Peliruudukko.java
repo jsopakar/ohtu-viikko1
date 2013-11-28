@@ -25,6 +25,8 @@ public class Peliruudukko {
     
     private int koko;
     private Ruutu[][] sisalto;
+
+    private int pisteita;
     
     // Poistettavien ruutujen rakenne, alustavasti luokkamuuttujana
     // mutta voi olla että tulee siirtymään parametreina välitettäväksi
@@ -40,6 +42,7 @@ public class Peliruudukko {
     public Peliruudukko(int koko) {
         this.koko = koko;
         sisalto = new Ruutu[koko][koko];
+        pisteita = 0;
     }
     
     /**
@@ -152,6 +155,14 @@ public class Peliruudukko {
      */
     public int kerroKoko() {
         return this.koko;
+    }
+    
+    /**
+     * Kertoo nykyisen pistetilanteen
+     * @return pistemäärä
+     */
+    public int pistetilanne() {
+        return this.pisteita;
     }
     
     // TODO: Tämä ei vielä tee mitään, järkevää tarvitsee kunnon logiikan
@@ -331,6 +342,7 @@ public class Peliruudukko {
     public void poistaRuudut(ArrayList<Point> poistettavat) {
         for ( Point p : poistettavat) {
             poistaRuutu(p.x, p.y);
+            this.pisteita++;
         }
     }
     
