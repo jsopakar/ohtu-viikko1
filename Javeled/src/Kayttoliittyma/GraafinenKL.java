@@ -12,6 +12,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Point;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -30,6 +31,8 @@ public class GraafinenKL implements Runnable {
     Pelitaso peli;
     Peliruudukko ruudukko;
     
+    private boolean lahdeValittu = false;
+    private Point lahde;
     private JFrame frame;
     
     public GraafinenKL() {
@@ -50,6 +53,14 @@ public class GraafinenKL implements Runnable {
         
         frame.pack();
         frame.setVisible(true);
+    }
+    
+    public boolean lahdeValittu() {
+        return this.lahdeValittu;
+    }
+    
+    public Point getLahde(){
+        return this.lahde;
     }
 
     private void luoKomponentit(Container container) {
@@ -76,6 +87,14 @@ public class GraafinenKL implements Runnable {
             for (int j = 0; j < 10; j++) {
                 int tyyppi = ruudukko.palautaRuutu(i, j).kerroTyyppi();
                 JButton uusiRuutu = new JButton(Integer.toString(tyyppi));
+                uusiRuutu.putClientProperty("ruutu", new Ruutu(6));
+                
+                SiirronKasittelija sk = 
+                        new SiirronKasittelija(peli,
+                        ruudukko.palautaRuutu(i, j),
+                        new Point(i, j),
+                        this);
+                uusiRuutu.addActionListener(sk);
                 uusiRuutu.setBackground(kerroTyypinVari(tyyppi));
                 panel.add(uusiRuutu);
             }
@@ -128,5 +147,14 @@ public class GraafinenKL implements Runnable {
         }
     }
 
-    
+    void asetaLahde(int rivi, int sarake) {
+        lahde = new Point(rivi, sarake);
+        lahdeValittu = true;
+    }
+
+    void nollaaLahde() {
+        lahde = null;
+        lahdeValittu = false;
+    }
+
 }
