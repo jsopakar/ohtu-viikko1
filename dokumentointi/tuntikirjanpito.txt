@@ -44,3 +44,6 @@ Ke 27.11.
  - 0,5h Graafisten juttujen lueskelua
 To 28.11.
  - 1h Sekalaista, graafisen puolen kans jumittamista...
+
+Ma 2.12.
+ - 2h Graafisen kälin opettelua ja rakentelua, tapahtumakäsittelijä tehty
