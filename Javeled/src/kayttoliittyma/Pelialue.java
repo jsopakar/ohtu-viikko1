@@ -22,13 +22,15 @@ public class Pelialue extends JPanel {
 
     private Pelitaso peli;
     private Peliruudukko ruudukko;
+    private Tietoalue tietoalue;
     private boolean lahdeValittu = false;
     private Point lahde;
 
-    public Pelialue(Pelitaso peli) {
+    public Pelialue(Pelitaso peli, Tietoalue ta) {
         super(new GridLayout(10, 10));
         this.peli = peli;
         this.ruudukko = peli.getRuudukko();
+        this.tietoalue = ta;
         luoKomponentit();
     }
 
@@ -43,7 +45,8 @@ public class Pelialue extends JPanel {
                         new SiirronKasittelija(peli,
                         ruudukko.palautaRuutu(i, j),
                         new Point(i, j),
-                        this);
+                        this,
+                        tietoalue);
                 uusiRuutu.addActionListener(sk);
                 uusiRuutu.setBackground(GraafinenKL.kerroTyypinVari(tyyppi));
                 add(uusiRuutu);

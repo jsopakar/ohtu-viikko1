@@ -23,20 +23,20 @@ public class SiirronKasittelija implements ActionListener {
     private Ruutu ruutu;
     private Point sijainti;
     private Pelialue pelialue;
+    private Tietoalue tietoalue;
 
-    public SiirronKasittelija(Pelitaso pt, Ruutu r, Point sijainti, Pelialue kl) {
+    public SiirronKasittelija(Pelitaso pt, Ruutu r, Point sijainti, Pelialue pa, Tietoalue ta) {
         this.peli = pt;
         this.ruutu = r;
         this.sijainti = sijainti;
-        this.pelialue = kl;
+        this.pelialue = pa;
+        this.tietoalue = ta;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         System.out.print("Käsitellään klikkaus ");
         System.out.println("x:" + sijainti.x + ", y: " + sijainti.y);
-        //System.out.println(ae.getActionCommand());
-        //System.out.println(ae.paramString());
 
         System.out.println(pelialue.lahdeValittu());
 
@@ -73,7 +73,7 @@ public class SiirronKasittelija implements ActionListener {
             this.paivitaPelialueenTiedot();
             pelialue.repaint();
 
-            //TODO: Pelialueen uudelleenpäivitys!
+            //TODO: Tietoalueen päivitys!
         } else {
             //TODO: Äänimerkki jos siirto ei onnistunut
             System.out.println("Siirtoa ei voitu tehdä!");

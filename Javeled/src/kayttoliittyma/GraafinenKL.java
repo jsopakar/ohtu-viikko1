@@ -32,6 +32,9 @@ public class GraafinenKL implements Runnable {
     Pelitaso peli;
     Peliruudukko ruudukko;
     
+    private Tietoalue tietoalue;
+    private Pelialue pelialue;
+    
     //private boolean lahdeValittu = false;
     //private Point lahde;
     
@@ -40,6 +43,9 @@ public class GraafinenKL implements Runnable {
     public GraafinenKL() {
         peli = new Pelitaso(1);
         ruudukko = peli.getRuudukko();
+        
+        this.tietoalue = new Tietoalue(peli);
+        this.pelialue = new Pelialue(peli, tietoalue);
 
     }
     
@@ -60,11 +66,15 @@ public class GraafinenKL implements Runnable {
     private void luoKomponentit(Container container) {
         container.setLayout(new BorderLayout());
         
-        container.add(luoOtsikot(), BorderLayout.NORTH);
-        container.add(new Pelialue(peli), BorderLayout.CENTER);
-        container.add(luoSiirtokomennot(), BorderLayout.SOUTH);
+        //container.add(luoOtsikot(), BorderLayout.NORTH);
+        
+        container.add(pelialue, BorderLayout.CENTER);
+        container.add(tietoalue, BorderLayout.SOUTH);
+        
+        //container.add(luoSiirtokomennot(), BorderLayout.SOUTH);
     }
     
+    // Turhaksi jäävä tilapäinen metodi
     private JPanel luoOtsikot() {
         JPanel panel = new JPanel(new GridLayout(1, 4));
         
@@ -84,6 +94,7 @@ public class GraafinenKL implements Runnable {
                 
     }
     
+    // Turhaksi jäävä tilapäinen metodi
     private JPanel luoSiirtokomennot() {
         JPanel panel = new JPanel();
         BoxLayout layout = new BoxLayout(panel, BoxLayout.X_AXIS);
