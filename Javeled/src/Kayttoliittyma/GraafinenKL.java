@@ -31,8 +31,9 @@ public class GraafinenKL implements Runnable {
     Pelitaso peli;
     Peliruudukko ruudukko;
     
-    private boolean lahdeValittu = false;
-    private Point lahde;
+    //private boolean lahdeValittu = false;
+    //private Point lahde;
+    
     private JFrame frame;
     
     public GraafinenKL() {
@@ -55,19 +56,11 @@ public class GraafinenKL implements Runnable {
         frame.setVisible(true);
     }
     
-    public boolean lahdeValittu() {
-        return this.lahdeValittu;
-    }
-    
-    public Point getLahde(){
-        return this.lahde;
-    }
-
     private void luoKomponentit(Container container) {
         container.setLayout(new BorderLayout());
         
         container.add(luoOtsikot(), BorderLayout.NORTH);
-        container.add(luoPelitaulukko(), BorderLayout.CENTER);
+        container.add(new Pelialue(peli), BorderLayout.CENTER);
         container.add(luoSiirtokomennot(), BorderLayout.SOUTH);
     }
     
@@ -81,6 +74,7 @@ public class GraafinenKL implements Runnable {
                 
     }
     
+    /*
     private JPanel luoPelitaulukko() {
         JPanel panel = new JPanel(new GridLayout(10, 10));
         for (int i = 0; i < 10; i++) {
@@ -101,6 +95,7 @@ public class GraafinenKL implements Runnable {
         }
         return panel;
     }
+    */
     
     private JPanel luoSiirtokomennot() {
         JPanel panel = new JPanel();
@@ -146,15 +141,4 @@ public class GraafinenKL implements Runnable {
                 return Color.black;
         }
     }
-
-    void asetaLahde(int rivi, int sarake) {
-        lahde = new Point(rivi, sarake);
-        lahdeValittu = true;
-    }
-
-    void nollaaLahde() {
-        lahde = null;
-        lahdeValittu = false;
-    }
-
 }

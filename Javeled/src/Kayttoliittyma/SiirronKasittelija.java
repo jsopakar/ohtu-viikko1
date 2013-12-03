@@ -8,6 +8,7 @@ import Sovelluslogiikka.*;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,9 +19,9 @@ public class SiirronKasittelija implements ActionListener {
     private Pelitaso peli;
     private Ruutu ruutu;
     private Point sijainti;
-    private GraafinenKL kayttoliittyma;
+    private Pelialue kayttoliittyma;
     
-    public SiirronKasittelija(Pelitaso pt, Ruutu r, Point sijainti, GraafinenKL kl) {
+    public SiirronKasittelija(Pelitaso pt, Ruutu r, Point sijainti, Pelialue kl) {
         this.peli = pt;
         this.ruutu = r;
         this.sijainti = sijainti;
@@ -56,6 +57,7 @@ public class SiirronKasittelija implements ActionListener {
         
         if (onnistui) {
             kayttoliittyma.nollaaLahde();
+            //TODO: Pelialueen uudelleenpäivitys!
         } else {
             //TODO: Äänimerkki jos siirto ei onnistunut
         
