@@ -74,6 +74,8 @@ public class SiirronKasittelija implements ActionListener {
             pelialue.repaint();
 
             //TODO: Tietoalueen päivitys!
+            paivitaTietoalueenTiedot();
+            
         } else {
             //TODO: Äänimerkki jos siirto ei onnistunut
             System.out.println("Siirtoa ei voitu tehdä!");
@@ -92,6 +94,12 @@ public class SiirronKasittelija implements ActionListener {
                 komponentit[monesko].setBackground(GraafinenKL.kerroTyypinVari(peli.getRuudukko().palautaRuutu(i, j).kerroTyyppi()));
             }
         }
+    }
+    
+    private void paivitaTietoalueenTiedot() {
+        System.out.println("Tietoalueen päivitys:");
+        Component comp = tietoalue.getComponent(0);
+        System.out.println(comp.getName());
     }
 
     /**
