@@ -66,10 +66,19 @@ public class GraafinenKL implements Runnable {
     
     private JPanel luoOtsikot() {
         JPanel panel = new JPanel(new GridLayout(1, 4));
+        
         panel.add(new JLabel("Siirtoja: "));
-        panel.add(new JLabel("xxx"));
+        JLabel siirtojaLabel = new JLabel();
+        siirtojaLabel.setName("siirtoLabel");
+        siirtojaLabel.setText(Integer.toString(peli.siirtojaJaljella()));
+        panel.add(siirtojaLabel);
+        
         panel.add(new JLabel("Pisteitä: "));
-        panel.add(new JLabel("yyy"));
+        JLabel pisteitaLabel = new JLabel();
+        pisteitaLabel.setName("pisteLabel");
+        pisteitaLabel.setText("Coming soon");
+        panel.add(pisteitaLabel);
+                
         return panel;
                 
     }
