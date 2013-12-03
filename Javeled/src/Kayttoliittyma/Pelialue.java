@@ -22,7 +22,6 @@ public class Pelialue extends JPanel {
     private Peliruudukko ruudukko;
     private boolean lahdeValittu = false;
     private Point lahde;
-//    private JFrame frame;
 
     public Pelialue(Pelitaso peli) {
         super(new GridLayout(10, 10));
@@ -44,7 +43,7 @@ public class Pelialue extends JPanel {
                         new Point(i, j),
                         this);
                 uusiRuutu.addActionListener(sk);
-                uusiRuutu.setBackground(kerroTyypinVari(tyyppi));
+                uusiRuutu.setBackground(GraafinenKL.kerroTyypinVari(tyyppi));
                 add(uusiRuutu);
             }
         }
@@ -68,50 +67,4 @@ public class Pelialue extends JPanel {
         lahde = null;
         lahdeValittu = false;
     }
-
-    public Color kerroTyypinVari(int tyyppi) {
-        switch (tyyppi) {
-            case 1:
-                return Color.red;
-            case 2:
-                return Color.yellow;
-            case 3:
-                return Color.blue;
-            case 4:
-                return Color.green;
-            case 5:
-                return Color.orange;
-            default:
-                return Color.black;
-        }
-    }
-    
-    @Override
-    public void repaint() {
-        //this.removeAll();
-        //luoKomponentit2();
-        super.repaint();
-    }
-
-    private void luoKomponentit2() {
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                int tyyppi = ruudukko.palautaRuutu(i, j).kerroTyyppi();
-                JButton uusiRuutu = new JButton(Integer.toString(tyyppi));
-                uusiRuutu.putClientProperty("ruutu", new Ruutu(6));
-
-                SiirronKasittelija sk =
-                        new SiirronKasittelija(peli,
-                        ruudukko.palautaRuutu(i, j),
-                        new Point(i, j),
-                        this);
-                uusiRuutu.addActionListener(sk);
-                uusiRuutu.setBackground(kerroTyypinVari(tyyppi));
-                add(uusiRuutu);
-            }
-        }
-
-    }
-
 }
-

@@ -74,29 +74,6 @@ public class GraafinenKL implements Runnable {
                 
     }
     
-    /*
-    private JPanel luoPelitaulukko() {
-        JPanel panel = new JPanel(new GridLayout(10, 10));
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                int tyyppi = ruudukko.palautaRuutu(i, j).kerroTyyppi();
-                JButton uusiRuutu = new JButton(Integer.toString(tyyppi));
-                uusiRuutu.putClientProperty("ruutu", new Ruutu(6));
-                
-                SiirronKasittelija sk = 
-                        new SiirronKasittelija(peli,
-                        ruudukko.palautaRuutu(i, j),
-                        new Point(i, j),
-                        this);
-                uusiRuutu.addActionListener(sk);
-                uusiRuutu.setBackground(kerroTyypinVari(tyyppi));
-                panel.add(uusiRuutu);
-            }
-        }
-        return panel;
-    }
-    */
-    
     private JPanel luoSiirtokomennot() {
         JPanel panel = new JPanel();
         BoxLayout layout = new BoxLayout(panel, BoxLayout.X_AXIS);
@@ -125,7 +102,7 @@ public class GraafinenKL implements Runnable {
         return frame;
     }
     
-    public Color kerroTyypinVari(int tyyppi) {
+    public static Color kerroTyypinVari(int tyyppi) {
         switch (tyyppi) {
             case 1:
                 return Color.red;
