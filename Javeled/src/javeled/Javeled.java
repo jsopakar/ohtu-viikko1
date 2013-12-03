@@ -4,9 +4,8 @@
  */
 package javeled;
 
-import Kayttoliittyma.GraafinenKL;
-import Kayttoliittyma.TekstiKL;
-import Sovelluslogiikka.*;
+import kayttoliittyma.GraafinenKL;
+import kayttoliittyma.TekstiKL;
 import javax.swing.SwingUtilities;
 
 /**

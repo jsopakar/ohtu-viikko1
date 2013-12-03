@@ -5,7 +5,7 @@ package Sovelluslogiikka;
  * and open the template in the editor.
  */
 
-import Sovelluslogiikka.Peliruudukko;
+import sovelluslogiikka.Peliruudukko;
 import java.awt.Point;
 import java.util.ArrayList;
 import org.junit.After;

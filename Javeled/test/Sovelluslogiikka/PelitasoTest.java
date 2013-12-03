@@ -4,6 +4,8 @@
  */
 package Sovelluslogiikka;
 
+import sovelluslogiikka.Ruutu;
+import sovelluslogiikka.Pelitaso;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

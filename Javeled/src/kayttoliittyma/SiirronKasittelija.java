@@ -2,9 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Kayttoliittyma;
+package kayttoliittyma;
 
-import Sovelluslogiikka.*;
+import sovelluslogiikka.Peliruudukko;
+import sovelluslogiikka.Pelitaso;
+import sovelluslogiikka.Ruutu;
 import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.ActionEvent;

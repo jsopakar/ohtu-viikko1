@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Sovelluslogiikka;
+package sovelluslogiikka;
 
 /**
  * Luokkarunko pelitasolle, joka tulee sisältämään yhden Peliruudukon,
