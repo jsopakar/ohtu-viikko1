@@ -22,6 +22,7 @@ public class Pelitaso {
     
     private int vaadittuPistemaara;
     
+    private Pistelasku pisteet;
     
     // Ilman parametria luodaan testikäyttöön esimerkkiruudukko
     /**
@@ -42,6 +43,8 @@ public class Pelitaso {
      */
     public Pelitaso(int kentta) {
         ruudukko = new Peliruudukko(tempTestikoko);
+        pisteet = new Pistelasku();
+        
         switch (kentta) {
             case 0:     //Pelattavaruudukko
                 ruudukko.taytaEsimerkkiPelattavaRuudukko();
