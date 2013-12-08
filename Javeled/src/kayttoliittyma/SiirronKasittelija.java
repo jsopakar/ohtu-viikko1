@@ -74,7 +74,7 @@ public class SiirronKasittelija implements ActionListener {
             pelialue.repaint();
 
             //TODO: Tietoalueen päivitys!
-            paivitaTietoalueenTiedot();
+            this.paivitaTietoalueenTiedot();
             
         } else {
             //TODO: Äänimerkki jos siirto ei onnistunut
@@ -98,8 +98,14 @@ public class SiirronKasittelija implements ActionListener {
     
     private void paivitaTietoalueenTiedot() {
         System.out.println("Tietoalueen päivitys:");
-        Component comp = tietoalue.getComponent(0);
-        System.out.println(comp.getName());
+        
+        //Component comp = tietoalue.getComponent(0);
+        //System.out.println(comp.getName());
+
+        //if (tietoalue.siirtojaLabel == null) {
+        //    System.out.println("siirtoja on null");
+        //}
+        tietoalue.siirtojaLabel.setText(Integer.toString( peli.siirtojaJaljella()));
     }
 
     /**

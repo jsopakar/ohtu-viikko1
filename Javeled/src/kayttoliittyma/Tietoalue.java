@@ -17,6 +17,9 @@ public class Tietoalue extends JPanel {
     
     private Pelitaso peli;
     
+    protected JLabel siirtojaLabel;
+    protected JLabel pisteitaLabel;
+    
     public Tietoalue(Pelitaso peli) {
         super(new GridLayout(2, 4));
         this.peli = peli;
@@ -26,14 +29,14 @@ public class Tietoalue extends JPanel {
     private void luoKomponentit() {
 
         this.add(new JLabel("Siirtoja: "));
-        JLabel siirtojaLabel = new JLabel();
+        siirtojaLabel = new JLabel();
 
         siirtojaLabel.setName("siirtoLabel");
         siirtojaLabel.setText(Integer.toString(peli.siirtojaJaljella()));
         this.add(siirtojaLabel);
 
         this.add(new JLabel("Pisteitä: "));
-        JLabel pisteitaLabel = new JLabel();
+        pisteitaLabel = new JLabel();
 
         pisteitaLabel.setName("pisteLabel");
         pisteitaLabel.setText("Coming soon");
