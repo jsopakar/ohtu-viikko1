@@ -39,7 +39,7 @@ public class Tietoalue extends JPanel {
         pisteitaLabel = new JLabel();
 
         pisteitaLabel.setName("pisteLabel");
-        pisteitaLabel.setText("Coming soon");
+        pisteitaLabel.setText(Integer.toString(peli.kerroPistemaara()));
         this.add(pisteitaLabel);
         
         // Toinen rivi:

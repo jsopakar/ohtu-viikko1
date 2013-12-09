@@ -127,4 +127,8 @@ public class Pelitaso {
     public void siirronJalkikasittely() {
         ruudukko.taytaTyhjatRuudut();
     }
+    
+    public int kerroPistemaara() {
+        return this.pisteet.getPisteet();
+    }
 }
