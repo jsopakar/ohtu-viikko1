@@ -36,7 +36,7 @@ public class PeliruudukkoTest {
     
     @Before
     public void setUp() {
-        ruudukko = new Peliruudukko(6);
+        ruudukko = new Peliruudukko(6, new sovelluslogiikka.Pistelasku());
         ruudukko.taytaEsimerkkiruudukkoTesteihin();
     }
     

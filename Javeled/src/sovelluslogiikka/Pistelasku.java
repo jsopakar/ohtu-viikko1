@@ -4,8 +4,8 @@ package sovelluslogiikka;
  * Luokka pistelaskua varten.
  * <p>
  * Mahdollistaa myöhemmin monimutkaisemman logiikan sisällyttämisen
- * pistelaskuun.
- *
+ * pistelaskuun. Toistaiseksi peli tukee vain pistelaskua, jossa
+ * ei ole erikseen kentän läpäisyyn vaadittavaa pistemäärää asennettu.
  * @author 012616660
  */
 public class Pistelasku {
@@ -14,7 +14,7 @@ public class Pistelasku {
     private int vaaditutPisteet;
 
     /**
-     * Konstruktri, joka luo pistalaskun, jossa ei ole vaadittuja pisteitä
+     * Konstruktri, joka luo pistelaskun, jossa ei ole vaadittuja pisteitä
      * läpipääsyyn.
      */
     public Pistelasku() {

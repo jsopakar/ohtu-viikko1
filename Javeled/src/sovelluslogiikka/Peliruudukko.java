@@ -26,23 +26,36 @@ public class Peliruudukko {
     private int koko;
     private Ruutu[][] sisalto;
 
-    private int pisteita;
+    private Pistelasku pisteet;
     
     // Poistettavien ruutujen rakenne, alustavasti luokkamuuttujana
     // mutta voi olla että tulee siirtymään parametreina välitettäväksi
     private ArrayList<Point> poistettavatRuudut =
             new ArrayList<Point>();
     
-    /**
+    /*
      * Konstruktori, joka alustaa ruudukon halutun kokoiseksi. 
      * <p>
      * Pysty- ja vaakakoko ovat samat.
      * @param koko ruudukon koko 
-     */
+     *
     public Peliruudukko(int koko) {
         this.koko = koko;
         sisalto = new Ruutu[koko][koko];
-        pisteita = 0;
+    }
+    */
+    
+    /**
+     * Konstruktori peliruudukon luomiseen.
+     * <p>
+     * Ruudukon pysty- ja kaakakoko ovat samat.
+     * @param koko ruudukon koko (koko x koko)
+     * @param pisteet viite Pelin Pistelasku-olioon
+     */
+    public Peliruudukko(int koko, Pistelasku pisteet) {
+        this.koko = koko;
+        sisalto = new Ruutu[koko][koko];
+        this.pisteet = pisteet;
     }
     
     /**
@@ -162,7 +175,7 @@ public class Peliruudukko {
      * @return pistemäärä
      */
     public int pistetilanne() {
-        return this.pisteita;
+        return this.pisteet.getPisteet();
     }
     
     // TODO: Tämä ei vielä tee mitään, järkevää tarvitsee kunnon logiikan
@@ -331,7 +344,9 @@ public class Peliruudukko {
      * @param rivi poistettavan ruudun rivi
      */
     public void poistaRuutu(int sarake, int rivi) {
+        
         this.sisalto[sarake][rivi] = new Ruutu(0);
+        pisteet.lisaaPisteita(1);
     }
     
     /**
@@ -342,7 +357,6 @@ public class Peliruudukko {
     public void poistaRuudut(ArrayList<Point> poistettavat) {
         for ( Point p : poistettavat) {
             poistaRuutu(p.x, p.y);
-            this.pisteita++;
         }
     }
     

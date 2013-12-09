@@ -30,7 +30,8 @@ public class Pelitaso {
      */
     public Pelitaso() {
         
-        ruudukko = new Peliruudukko(tempTestikoko);
+        pisteet = new Pistelasku();
+        ruudukko = new Peliruudukko(tempTestikoko, pisteet);
         ruudukko.taytaEsimerkkiruudukkoTesteihin();
         
         this.vaadittuPistemaara = 20;
@@ -42,8 +43,8 @@ public class Pelitaso {
      * @param kentta kentän numero, 0=oletuspeli, -1=testausruudukko
      */
     public Pelitaso(int kentta) {
-        ruudukko = new Peliruudukko(tempTestikoko);
         pisteet = new Pistelasku();
+        ruudukko = new Peliruudukko(tempTestikoko, pisteet);
         
         switch (kentta) {
             case 0:     //Pelattavaruudukko
@@ -53,7 +54,7 @@ public class Pelitaso {
                 ruudukko.taytaEsimerkkiruudukkoTesteihin();
                 break;
             case 1:     // Isompi ruudukko
-                ruudukko = new Peliruudukko(10);
+                ruudukko = new Peliruudukko(10, pisteet);
                 ruudukko.taytaRuudukkoSatunnaisesti();
                 break;
             default:
