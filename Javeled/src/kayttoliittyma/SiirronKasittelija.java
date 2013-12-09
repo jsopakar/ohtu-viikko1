@@ -11,6 +11,7 @@ import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -35,12 +36,21 @@ public class SiirronKasittelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        
+        if (peli.siirtojaJaljella() <= 0) {
+            JOptionPane.showMessageDialog(null,
+                    "Siirtoja ei enää jäljellä",
+                    "Peli loppunut!", JOptionPane.PLAIN_MESSAGE);
+            return;
+        }
+        
         System.out.print("Käsitellään klikkaus ");
         System.out.println("x:" + sijainti.x + ", y: " + sijainti.y);
 
-        System.out.println(pelialue.lahdeValittu());
+        boolean lahdeValittu = pelialue.lahdeValittu();
+        System.out.println(lahdeValittu);
 
-        if (!pelialue.lahdeValittu()) {
+        if (!lahdeValittu) {
             pelialue.asetaLahde(sijainti.x, sijainti.y);
             System.out.println("Asetettiin lähderuutu");
         } else {
@@ -49,11 +59,13 @@ public class SiirronKasittelija implements ActionListener {
             } else {
                 System.out.println("Käsitellään siirto");
                 kasitteleSiirto();
-                
+
             }
         }
 
-        tulostaRuudukko(this.peli.getRuudukko());
+        if (lahdeValittu) {
+            tulostaRuudukko(this.peli.getRuudukko());
+       }
 
     }
 
@@ -75,7 +87,9 @@ public class SiirronKasittelija implements ActionListener {
 
             //TODO: Tietoalueen päivitys!
             this.paivitaTietoalueenTiedot();
-            
+
+            this.tilanTarkastelu();
+
         } else {
             //TODO: Äänimerkki jos siirto ei onnistunut
             System.out.println("Siirtoa ei voitu tehdä!");
@@ -83,8 +97,8 @@ public class SiirronKasittelija implements ActionListener {
     }
 
     /**
-     * Metodi, joka päivittää käyttöliittymäpanelin ruudukon nappuloiden
-     * tiedot vastaamaan sovelluslogiikan ruudukkoa.
+     * Metodi, joka päivittää käyttöliittymäpanelin ruudukon nappuloiden tiedot
+     * vastaamaan sovelluslogiikan ruudukkoa.
      */
     private void paivitaPelialueenTiedot() {
         Component[] komponentit = pelialue.getComponents();
@@ -95,24 +109,24 @@ public class SiirronKasittelija implements ActionListener {
             }
         }
     }
-    
+
     private void paivitaTietoalueenTiedot() {
         System.out.println("Tietoalueen päivitys:");
-        
+
         //Component comp = tietoalue.getComponent(0);
         //System.out.println(comp.getName());
 
         //if (tietoalue.siirtojaLabel == null) {
         //    System.out.println("siirtoja on null");
         //}
-        tietoalue.siirtojaLabel.setText(Integer.toString( peli.siirtojaJaljella()));
+        tietoalue.siirtojaLabel.setText(Integer.toString(peli.siirtojaJaljella()));
     }
 
     /**
      * Tilapäinen metodi ruudukon tekstimuotoiseen tulostukseen.
      * <p>
      * debug-tarkoitukseen.
-     * @param ruudukko 
+     * @param ruudukko
      */
     private void tulostaRuudukko(Peliruudukko ruudukko) {
         int koko = ruudukko.kerroKoko();
@@ -121,6 +135,18 @@ public class SiirronKasittelija implements ActionListener {
                 System.out.print(ruudukko.palautaRuutu(i, j).kerroTyyppi());
             }
             System.out.println("");
+        }
+    }
+
+    /**
+     * Metodi, jolla siirron jälkeen tarkastellaan, onko peli mennyt läpi yms.
+     */
+    private void tilanTarkastelu() {
+
+        // Jos siirrot loppu:
+        if (peli.siirtojaJaljella() <= 0) {
+            System.out.println("PELI LOPPUI");
+            //TODO: Kesken, tulossa dialogi
         }
     }
 }
