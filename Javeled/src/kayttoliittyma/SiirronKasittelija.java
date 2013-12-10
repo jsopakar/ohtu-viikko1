@@ -95,6 +95,7 @@ public class SiirronKasittelija implements ActionListener {
         } else {
             //TODO: Äänimerkki jos siirto ei onnistunut
             System.out.println("Siirtoa ei voitu tehdä!");
+            java.awt.Toolkit.getDefaultToolkit().beep();
         }
     }
 
@@ -148,7 +149,10 @@ public class SiirronKasittelija implements ActionListener {
         // Jos siirrot loppu:
         if (peli.siirtojaJaljella() <= 0) {
             System.out.println("PELI LOPPUI");
-            //TODO: Kesken, tulossa dialogi
+            int n = peli.kerroPistemaara();
+            JOptionPane.showMessageDialog(null,
+                    "Peli loppui, sait " + n + " pistettä!",
+                    "Peli loppui!", JOptionPane.PLAIN_MESSAGE);
         }
     }
 }
