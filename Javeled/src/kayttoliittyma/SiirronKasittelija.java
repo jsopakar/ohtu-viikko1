@@ -4,6 +4,7 @@
  */
 package kayttoliittyma;
 
+import java.awt.Color;
 import sovelluslogiikka.Peliruudukko;
 import sovelluslogiikka.Pelitaso;
 import sovelluslogiikka.Ruutu;
@@ -11,6 +12,7 @@ import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -105,7 +107,12 @@ public class SiirronKasittelija implements ActionListener {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 int monesko = i * 10 + j;
-                komponentit[monesko].setBackground(GraafinenKL.kerroTyypinVari(peli.getRuudukko().palautaRuutu(i, j).kerroTyyppi()));
+                JButton nappula = (JButton)komponentit[monesko];
+                Ruutu r = peli.getRuudukko().palautaRuutu(i, j);
+                String pistearvo = Integer.toString(r.pistearvo());
+                Color ruutuvari = GraafinenKL.kerroTyypinVari(r.kerroTyyppi());
+                nappula.setBackground(ruutuvari);
+                nappula.setText(pistearvo);
             }
         }
     }
