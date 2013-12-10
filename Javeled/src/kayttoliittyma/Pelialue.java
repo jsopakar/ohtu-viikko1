@@ -7,11 +7,9 @@ package kayttoliittyma;
 import sovelluslogiikka.Peliruudukko;
 import sovelluslogiikka.Pelitaso;
 import sovelluslogiikka.Ruutu;
-import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Point;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -38,7 +36,11 @@ public class Pelialue extends JPanel {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 int tyyppi = ruudukko.palautaRuutu(i, j).kerroTyyppi();
-                JButton uusiRuutu = new JButton(Integer.toString(tyyppi));
+                int pistearvo = ruudukko.palautaRuutu(i, j).pistearvo();
+                JButton uusiRuutu = new JButton(Integer.toString(pistearvo));
+                uusiRuutu.setOpaque(true);
+                uusiRuutu.setBorderPainted(false);
+                
                 uusiRuutu.putClientProperty("ruutu", new Ruutu(6));
 
                 SiirronKasittelija sk =

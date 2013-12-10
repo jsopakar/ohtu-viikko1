@@ -52,7 +52,7 @@ public class GraafinenKL implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Javeled");
-        frame.setPreferredSize(new Dimension(350, 370));
+        frame.setPreferredSize(new Dimension(430, 370));
         frame.setLocation(600,250);
         
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
