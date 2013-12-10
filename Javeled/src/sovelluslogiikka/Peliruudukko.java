@@ -21,7 +21,12 @@ public class Peliruudukko {
     /**
      * Vakio, joka kertoo kuinka monta eri perusruututyyppiä peliin kuuluu
      */
-    private static int tyyppiMaara = 5;
+    public static final int TYYPPIMAARA = 5;
+    
+    public static final double TOD_2PISTETTA = 0.1;
+    public static final double TOD_3PISTETTA = 0.05;
+    public static final double TOD_5PISTETTA = 0.01;
+            
     
     private int koko;
     private Ruutu[][] sisalto;
@@ -415,14 +420,32 @@ public class Peliruudukko {
     
     /**
      * Metodi, joka arpoo satunnaisen ruudun.
-     * @param maksimi maksimiarvo ruututyypille.
      * @return arvottu satunnainen ruutu
      */
     public Ruutu arvoSatunnainenRuutu() {
         
         int luku = arvoRuututyyppi();
-        return new Ruutu(luku);
+        int pistearvo = arvoRuudunPistearvo();
+        return new Ruutu(luku, pistearvo);
 
+    }
+    
+    /**
+     * Arpoo uudelle ruudulle pistearvon.
+     * <p>Pistemäärien todennäköisyysarvot on määritelty luokassa vakioina.
+     * @return arvottu pistearvo.
+     */
+    public int arvoRuudunPistearvo() {
+        double r = Math.random();
+        if (r < TOD_5PISTETTA) {
+            return 5;
+        } else if (r < TOD_3PISTETTA) {
+            return 3;
+        } else if (r < TOD_2PISTETTA) {
+            return 2;
+        } else {
+            return 1;
+        }
     }
     
     /**
@@ -450,7 +473,7 @@ public class Peliruudukko {
      * @return ruututyyppi
      */
     private int arvoRuututyyppi() {
-        return (int)(Math.random() * tyyppiMaara) + 1;
+        return (int)(Math.random() * TYYPPIMAARA) + 1;
     }
     
 }
