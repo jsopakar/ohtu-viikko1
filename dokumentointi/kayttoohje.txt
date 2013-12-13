@@ -1,0 +1,8 @@
+Javeled on Bejeweled-tyyppinen peli, jossa siirrell‰‰n ruudukolla erityyppisi‰ palasia. T‰ss‰ eri tyypeill‰ on oma v‰rins‰, ja tarkoitus on muodostaa kolmen
+tai useamman yhten‰isen v‰rin vierekk‰isi‰ alueita. Viistokuvioita ei lasketa.
+
+Peliruudukko on 10x10, ja peliss‰ on viitt‰ eri v‰ri‰ ruutuja. Pelaaja voi klikata ensin ruutua, jonka haluaa siirt‰‰, ja toisella klikkauksella valita ruudun, jonka kanssa t‰m‰ siirret‰‰n. Siirto t‰ytyy tapahtua vierekk‰isiin ruutuihin, muuten siirtoa ei hyv‰ksyt‰.
+
+Siirron j‰lkeen peli laskee syntyneet hyv‰ksytt‰v‰t kolmen tai suuremmat alueet, ja poistaa ne ruudukosta ja laskee pisteet. Poistuneiden ruutujen paikalle laskeutuu ruutuja ylh‰‰lt‰ p‰in, ja uusia satunnaisia ruutuja arvotaan yl‰laidasta tilalle. Uudet ruudut voivat sis‰lt‰‰ parempiarvoisia pistem‰‰ri‰, 2, 3 tai jopa 5 pistett‰.
+
+Huomioitavaa on, ett‰ varsinkin alalaidasta ruutuja siirt‰ess‰, ketjureaktiona ruutujen tippumisessa saattaa poistua huomattava m‰‰r‰ muitakin ruutuja joita tiippuu alasp‰in, ja vastaavasti pistem‰‰r‰t voivat olla yll‰tt‰vi‰.
