@@ -15,12 +15,23 @@ import java.util.Scanner;
  */
 public class TekstiKL {
     
+    /**
+     * Pelitaso-olio, varsinainen peli
+     */
     Pelitaso peli;
+    
+    /**
+     * Pelin sisältämä ruudukko, suora osoitus samaan mikä Pelitason sisällä on.
+     */
     Peliruudukko ruudukko;
+    
+    /**
+     * Scanner-olio käyttäjän syötteiden lukemista varten
+     */
     Scanner lukija = new Scanner(System.in);
     
     /**
-     *
+     * Konstruktori
      */
     public TekstiKL() {
         
@@ -188,5 +199,4 @@ public class TekstiKL {
         System.out.println("L = Lopetus (myös tyhjä rivi kelpaa)");
         System.out.println("");
     }
-    
 }

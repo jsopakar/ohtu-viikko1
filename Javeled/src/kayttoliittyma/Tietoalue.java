@@ -17,6 +17,9 @@ import sovelluslogiikka.*;
  */
 public class Tietoalue extends JPanel implements ActionListener {
     
+    /**
+     * Viittaus Pelitaso-olioon, josta saa tiedon pelin vaiheista.
+     */
     private Pelitaso peli;
     
     protected JLabel siirtojaLabel;
@@ -24,12 +27,19 @@ public class Tietoalue extends JPanel implements ActionListener {
     
     protected JButton lopetaButton;
     
+    /**
+     * Konstruktori, joka alustaa ja kutsuu komponenttien luontia.
+     * @param peli 
+     */
     public Tietoalue(Pelitaso peli) {
         super(new GridLayout(2, 4));
         this.peli = peli;
         luoKomponentit();
     }
 
+    /**
+     * Metodi joka luo varsinaiset näytettävä komponentit
+     */
     private void luoKomponentit() {
 
         this.add(new JLabel("Siirtoja: "));
@@ -59,6 +69,12 @@ public class Tietoalue extends JPanel implements ActionListener {
         this.add(new JLabel(""));
     }
 
+    /**
+     * Käsittely nappuloiden painamiselle.
+     * <p>
+     * Julkaisuversiossa vain lopeta-nappula.
+     * @param e ActionEvent
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -74,7 +90,5 @@ public class Tietoalue extends JPanel implements ActionListener {
         } else if ("Uusi".equals(e.getActionCommand())) {
             // Runko uuden pelin luomiselle, tai uuden tason valitsemisen laukaisemiselle
         }
-        
     }
-    
 }
