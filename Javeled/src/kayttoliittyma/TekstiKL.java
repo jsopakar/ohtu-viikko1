@@ -52,29 +52,6 @@ public class TekstiKL {
         
         lueKomentoja();
         
-        /*
-        ArrayList<Point> poistettavat = new ArrayList<Point>();
-        poistettavat.add(new Point(0, 2));
-        poistettavat.add(new Point(5, 4));
-        ruudukko.poistaRuudut(poistettavat);
-        
-        System.out.println("Poiston jälkeen:");
-        tulostaRuudukko(ruudukko);
-        */
-        
-        //System.out.println("Käsitellään ruutu:");
-        //System.out.println(ruudukko.palautaRuutu(1,2).kerroTyyppi());
-        //int testitulos = ruudukko.kasitteleRuutu(1,2);
-        //System.out.println("Samoja: "+ testitulos);
-        
-        //System.out.println("Käsittelyn jälkeen: ");
-        //tulostaRuudukko(ruudukko);
-        
-        //System.out.println("Vaihdetaan: ");
-        //System.out.println(ruudukko.siirtoMahdollinen(0,0,0,1));
-        //ruudukko.vaihdaRuudut(2, 1, 2, 2);
-        
-        //tulostaRuudukko(ruudukko);
     }
     
     /**
