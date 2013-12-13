@@ -19,16 +19,42 @@ public class Peliruudukko {
      */
     public static final int TYYPPIMAARA = 5;
     
+    /**
+     * Vakio, joka kertoo millä todennäköisyydellä uusi arvottava ruutu on 2 pisteen arvoinen
+     */
     public static final double TOD_2PISTETTA = 0.1;
+
+    /**
+     * Vakio, joka kertoo millä todennäköisyydellä uusi arvottava ruutu on 3 pisteen arvoinen
+     */
     public static final double TOD_3PISTETTA = 0.05;
+
+    /**
+     * Vakio, joka kertoo millä todennäköisyydellä uusi arvottava ruutu on 5 pisteen arvoinen
+     */
     public static final double TOD_5PISTETTA = 0.01;
             
-    
+    /**
+     * Ruudukon koko, (koko x koko)-taulukko
+     */
     private int koko;
+    
+    /**
+     * Taulukollinen Ruutu-olioita.
+     */
     private Ruutu[][] sisalto;
-
+    
+    /*
+     * Pistelasku.
+     * <p>
+     * Huom. Sama viite kuin Pelitaso-luokalla on pistelaskuun.
+     */
     private Pistelasku pisteet;
     
+    /**
+     * Luokan sisäinen tietovarasto poistettaville ruuduille, Point-taulukkona
+     * koordinaattien tallentamiseen.
+     */
     private ArrayList<Point> poistettavatRuudut =
             new ArrayList<Point>();
     
@@ -85,7 +111,6 @@ public class Peliruudukko {
         }
         return onOk;
     }
-    
     
     /**
      * Metodi, joka täyttää ruudukon ennalta määritellyillä ruututyypeillä.
@@ -172,7 +197,6 @@ public class Peliruudukko {
      * kaikki kriteerit täyttävät oliot, eli suuntaansa on oltava 3 samaa tyyppiä,
      * jotta ne halutaan poistaa.
      * <p>
-     * Selvitettävä vielä, miten tätä olisi järkevä pilkkoa pienempiin osiin.
      * 
      * @param rivi käsiteltävän ruudun rivi
      * @param sarake käsiteltävän ruudun sarake
@@ -180,6 +204,8 @@ public class Peliruudukko {
      */
     public int kasitteleRuutu(int rivi, int sarake) {
         
+        // Laskuri, että kuinka monta samaa tyyppiä käsiteltävän ruudun ympärillä on
+        // itse käsiteltävä ruutu mukaanluettuna
         int samoja = 1;
         
         Ruutu tamaRuutu = this.palautaRuutu(rivi, sarake);
@@ -239,9 +265,7 @@ public class Peliruudukko {
                 poistettavatRuudut.add(new Point(i, sarake));
             }
         }
-        
         return samoja; // palautetaan vain samojen määrä, sijainnit talletettu erikseen
-            
     }
     
     /**
@@ -293,7 +317,6 @@ public class Peliruudukko {
     }
 
     
-    // Metodi, joka katsoo onko pelaajan antama siirto mahdollinen
     /**
      * Metodi, joka tarkastaa onko käyttäjän antama siirto toteutettavissa.
      * <p>
@@ -354,6 +377,9 @@ public class Peliruudukko {
     /**
      * Metodi, jolla hoidetaan siihen mennessä poistetuksi merkittävien ruutujen
      * poisto.
+     * <p>
+     * Toistaa poistoa tarpeeksi kauan, kunnes tyhjien ruutujen täytön jälkeen
+     * ei enää ole poistuvia alueita.
      * 
      */
     public void teePoisto() {
@@ -402,9 +428,7 @@ public class Peliruudukko {
             if (palautettava.kerroTyyppi() == 0) {
                 palautettava = sisalto[rivi][sarake];
             }
-//            palautettava = sisalto[rivi][sarake];
         }
-        
         return palautettava;
     }
     
@@ -417,7 +441,6 @@ public class Peliruudukko {
         int luku = arvoRuututyyppi();
         int pistearvo = arvoRuudunPistearvo();
         return new Ruutu(luku, pistearvo);
-
     }
     
     /**
