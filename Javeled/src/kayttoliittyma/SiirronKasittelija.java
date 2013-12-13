@@ -12,9 +12,11 @@ import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ButtonModel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 /**
  *
@@ -38,7 +40,7 @@ public class SiirronKasittelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
+
         // Jos siirrot loppuneet, ei tehdä mitään vaan kerrotaan vain dialogissa se
         if (peli.siirtojaJaljella() <= 0) {
             JOptionPane.showMessageDialog(null,
@@ -46,7 +48,7 @@ public class SiirronKasittelija implements ActionListener {
                     "Peli loppunut!", JOptionPane.PLAIN_MESSAGE);
             return;
         }
-        
+
         System.out.print("Käsitellään klikkaus ");
         System.out.println("x:" + sijainti.x + ", y: " + sijainti.y);
 
@@ -56,12 +58,15 @@ public class SiirronKasittelija implements ActionListener {
         if (!lahdeValittu) {
             pelialue.asetaLahde(sijainti.x, sijainti.y);
             System.out.println("Asetettiin lähderuutu");
+            paivitaRuutuValituksi(sijainti, true);
+
         } else {
             Point lahde = pelialue.getLahde();
-            
+
             // Tarkastetaan ettei klikattu samaa ruutua uudestaan:
             if (lahde.equals(sijainti)) {
                 System.out.println("Klikattu samaa uudestaan!");
+                this.paivitaRuutuValituksi(lahde, false);
                 pelialue.nollaaLahde();
             } else {
                 System.out.println("Käsitellään siirto");
@@ -72,7 +77,7 @@ public class SiirronKasittelija implements ActionListener {
 
         if (lahdeValittu) {
             tulostaRuudukko(this.peli.getRuudukko());
-       }
+        }
 
     }
 
@@ -87,6 +92,7 @@ public class SiirronKasittelija implements ActionListener {
             peli.getRuudukko().taytaTyhjatRuudut();
             peli.getRuudukko().kasitteleKokoRuudukko();
 
+            this.paivitaRuutuValituksi(lahde, false);
             pelialue.nollaaLahde();
 
             this.paivitaPelialueenTiedot();
@@ -100,6 +106,9 @@ public class SiirronKasittelija implements ActionListener {
         } else {
             //TODO: Äänimerkki jos siirto ei onnistunut
             System.out.println("Siirtoa ei voitu tehdä!");
+            
+            this.paivitaRuutuValituksi(lahde, false);
+            
             java.awt.Toolkit.getDefaultToolkit().beep();
         }
     }
@@ -113,7 +122,7 @@ public class SiirronKasittelija implements ActionListener {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 int monesko = i * 10 + j;
-                JButton nappula = (JButton)komponentit[monesko];
+                JButton nappula = (JButton) komponentit[monesko];
                 Ruutu r = peli.getRuudukko().palautaRuutu(i, j);
                 String pistearvo = Integer.toString(r.pistearvo());
                 Color ruutuvari = GraafinenKL.kerroTyypinVari(r.kerroTyyppi());
@@ -134,6 +143,7 @@ public class SiirronKasittelija implements ActionListener {
      * Tilapäinen metodi ruudukon tekstimuotoiseen tulostukseen konsoliin.
      * <p>
      * debug-tarkoitukseen.
+     *
      * @param ruudukko
      */
     private void tulostaRuudukko(Peliruudukko ruudukko) {
@@ -159,5 +169,22 @@ public class SiirronKasittelija implements ActionListener {
                     "Peli loppui, sait " + n + " pistettä!",
                     "Peli loppui!", JOptionPane.PLAIN_MESSAGE);
         }
+    }
+    
+    /**
+     * Metodi, joka merkitsee ruudun korostetuksi kun se on valittu lähteeksi.
+     * <p>
+     * Samalla metodilla voidaan päivittää ruudun tila ei-valituksi.
+     * @param ruutu haluttu ruutu
+     * @param valituksi tieto siitä, merkataanko ruutu valituksi ei ei-valituksi
+     */
+    private void paivitaRuutuValituksi(Point ruutu, boolean valituksi ) {
+
+            int monesko = ruutu.x * 10 + ruutu.y;
+            Component[] komponentit = pelialue.getComponents();
+            JButton nappula = (JButton) komponentit[monesko];
+            nappula.setBorderPainted(valituksi);
+            nappula.setSelected(valituksi);
+
     }
 }

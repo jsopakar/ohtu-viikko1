@@ -40,6 +40,7 @@ public class Pelialue extends JPanel {
                 JButton uusiRuutu = new JButton(Integer.toString(pistearvo));
                 uusiRuutu.setOpaque(true);
                 uusiRuutu.setBorderPainted(false);
+                uusiRuutu.setFocusPainted(false);
                 
                 uusiRuutu.putClientProperty("ruutu", new Ruutu(6));
 
