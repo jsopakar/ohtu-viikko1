@@ -1,0 +1,3 @@
+Yleistä testauksesta
+
+Jo projektin alkuvaiheissa ensimmäisiä yksikkötestauksia tehdessä tuli eteen kysymys, että aika iso osa testauksesta joutuisi tekemisiin satunnaisuuden kanssa (satunnaisia ruutuja, satunnaisissa kohdissa). Läheskään kaikkea haluamaani en siis voinut sisällyttä JUnit-testeihin, siinä laajuudessa kun niitä on opetettu ja vaadittu.
