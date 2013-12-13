@@ -104,6 +104,7 @@ public class SiirronKasittelija implements ActionListener {
             System.out.println("Siirtoa ei voitu tehdä!");
             
             this.paivitaRuutuValituksi(lahde, false);
+            pelialue.nollaaLahde();
             
             java.awt.Toolkit.getDefaultToolkit().beep();
         }

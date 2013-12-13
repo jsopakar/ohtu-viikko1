@@ -327,16 +327,21 @@ public class Peliruudukko {
      * @return tieto siitä onko siirto mahdollinen
      */
     public boolean siirtoMahdollinen(int rivi1, int sarake1, int rivi2, int sarake2) {
-        boolean onOK = true;
+
+        // Ruutujen täytyy olla vierekkäiset
+        if (Math.abs(rivi1-rivi2) > 1 || Math.abs(sarake1-sarake2) > 1 ) {
+            return false;
+        }
+
         int arvo1 = sisalto[rivi1][sarake1].kerroTyyppi();
         int arvo2 = sisalto[rivi2][sarake2].kerroTyyppi();
         
         // Saman tyypin ruutuja ei voi vaihtaa keskenään
         if (arvo1 == arvo2) {
-            onOK = false;
+            return false;
         }
         
-        return onOK;
+        return true;
     }
     
     /**
