@@ -29,22 +29,8 @@ public class Peliruudukko {
 
     private Pistelasku pisteet;
     
-    // Poistettavien ruutujen rakenne, alustavasti luokkamuuttujana
-    // mutta voi olla että tulee siirtymään parametreina välitettäväksi
     private ArrayList<Point> poistettavatRuudut =
             new ArrayList<Point>();
-    
-    /*
-     * Konstruktori, joka alustaa ruudukon halutun kokoiseksi. 
-     * <p>
-     * Pysty- ja vaakakoko ovat samat.
-     * @param koko ruudukon koko 
-     *
-    public Peliruudukko(int koko) {
-        this.koko = koko;
-        sisalto = new Ruutu[koko][koko];
-    }
-    */
     
     /**
      * Konstruktori peliruudukon luomiseen.
@@ -100,10 +86,6 @@ public class Peliruudukko {
         return onOk;
     }
     
-    // Tilapäinen tapa palauttaa jokin ennalta määritelty peliruudukko
-    // Täytyy siirtää myöhemmin logiikka parempaan paikkaan, jossa
-    // mahdollisuus palauttaa joku esimerkkiruudukko, satunnainen oletuskoko,
-    // tai myös tiedostosta luettu erikoisempi pelimuoto.
     
     /**
      * Metodi, joka täyttää ruudukon ennalta määritellyillä ruututyypeillä.
@@ -133,7 +115,8 @@ public class Peliruudukko {
      * Metodi, joka täyttää ruudukon esimerkkipelillä.
      * <p>
      * Erotuksena testiruudukkoon, tämä ei sisällä valmiiksi poistuvia yhdistelmiä,
-     * ja tätä voidaan käyttää uutena pelinä.
+     * ja tätä voidaan periaatteessa käyttää uutena pelinä. Suunniteltu peli tosin
+     * käyttää satunnaista ruudukkoa, ei tätä.
      */
     public void taytaEsimerkkiPelattavaRuudukko() {
         Ruutu[][] uusiSisalto = new Ruutu[koko][koko];
@@ -172,17 +155,14 @@ public class Peliruudukko {
     }
     
     /**
-     * Kertoo nykyisen pistetilanteen
+     * Kertoo nykyisen pistetilanteen.
      * @return pistemäärä
      */
     public int pistetilanne() {
         return this.pisteet.getPisteet();
     }
     
-    // TODO: Tämä ei vielä tee mitään, järkevää tarvitsee kunnon logiikan
-    // ja pilkkomisen fiksuihin osametodeihin. 
     
-    //public void kasitteleRuutu(int x, int y) {
     /**
      * Metodi, joka hoitaa varsinaisen ydintoiminnon, eli laskennan halutun
      * ruudun ympäriltä.
@@ -198,7 +178,7 @@ public class Peliruudukko {
      * @param sarake käsiteltävän ruudun sarake
      * @return tieto kuinka monta ruutua merkataan poistettavaksi
      */
-    public int kasitteleRuutu(int rivi, int sarake) { // tilapäisesti palauttaa samojen ruutujen määrän
+    public int kasitteleRuutu(int rivi, int sarake) {
         
         int samoja = 1;
         
@@ -260,7 +240,7 @@ public class Peliruudukko {
             }
         }
         
-        return samoja; // palautetaan vain samojen määrä, ei vielä tallenneta sijainteja
+        return samoja; // palautetaan vain samojen määrä, sijainnit talletettu erikseen
             
     }
     
@@ -306,7 +286,7 @@ public class Peliruudukko {
             if (!poistettavatRuudut.isEmpty()) {
                 teePoisto();
             } else {
-                // TODO: Tähän reagointi siihen, jos siirto ei aiheuttaisi poistoja!
+                // Tilaa mahdolliselle reagoinnille jos poistoja ei tehdä.
             }
         }
         return vaihdettu;
@@ -317,8 +297,8 @@ public class Peliruudukko {
     /**
      * Metodi, joka tarkastaa onko käyttäjän antama siirto toteutettavissa.
      * <p>
-     * Toistaiseksi tarkastaa pelkästään ettei vain siirretä samaa tyyppiä.
-     * Lisää tarkastelua tarvitaan.
+     * Tarkastaa että siirrettävät ruudut ei ole samaa tyyppiä, ja että ne
+     * ovat ruudukossa vierekkäisiä.
      * 
      * @param rivi1 ensimmäisen vaihdettavan ruudun rivi
      * @param sarake1 ensimmäisen vaihdettavan ruudun sarake
@@ -365,6 +345,7 @@ public class Peliruudukko {
      * @param poistettavat ArrayList Point-oliota, jotka sisältävät koordinaatit
      */
     public void poistaRuudut(ArrayList<Point> poistettavat) {
+        //System.out.println("Poistettavia: " + poistettavat.size());
         for ( Point p : poistettavat) {
             poistaRuutu(p.x, p.y);
         }

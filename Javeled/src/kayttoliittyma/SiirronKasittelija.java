@@ -45,15 +45,13 @@ public class SiirronKasittelija implements ActionListener {
             return;
         }
 
-        System.out.print("Käsitellään klikkaus ");
-        System.out.println("x:" + sijainti.x + ", y: " + sijainti.y);
+        //System.out.print("Käsitellään klikkaus ");
+        //System.out.println("x:" + sijainti.x + ", y: " + sijainti.y);
 
         boolean lahdeValittu = pelialue.lahdeValittu();
-        System.out.println(lahdeValittu);
 
         if (!lahdeValittu) {
             pelialue.asetaLahde(sijainti.x, sijainti.y);
-            System.out.println("Asetettiin lähderuutu");
             paivitaRuutuValituksi(sijainti, true);
 
         } else {
@@ -61,18 +59,19 @@ public class SiirronKasittelija implements ActionListener {
 
             // Tarkastetaan ettei klikattu samaa ruutua uudestaan:
             if (lahde.equals(sijainti)) {
-                System.out.println("Klikattu samaa uudestaan!");
+                //System.out.println("Klikattu samaa uudestaan!");
                 this.paivitaRuutuValituksi(lahde, false);
                 pelialue.nollaaLahde();
             } else {
-                System.out.println("Käsitellään siirto");
+                //System.out.println("Käsitellään siirto");
                 kasitteleSiirto();
 
             }
         }
 
+        // Konsoliin tulostus tarvittaessa debuggaukseen:
         if (lahdeValittu) {
-            tulostaRuudukko(this.peli.getRuudukko());
+            //tulostaRuudukko(this.peli.getRuudukko());
         }
 
     }
@@ -84,9 +83,7 @@ public class SiirronKasittelija implements ActionListener {
         onnistui = peli.teeSiirto(lahde.x, lahde.y, sijainti.x, sijainti.y);
 
         if (onnistui) {
-            System.out.println("Siirto tehty");
-            peli.getRuudukko().taytaTyhjatRuudut();
-            peli.getRuudukko().kasitteleKokoRuudukko();
+            //System.out.println("Siirto tehty");
 
             this.paivitaRuutuValituksi(lahde, false);
             pelialue.nollaaLahde();
@@ -94,14 +91,12 @@ public class SiirronKasittelija implements ActionListener {
             this.paivitaPelialueenTiedot();
             pelialue.repaint();
 
-            //TODO: Tietoalueen päivitys!
             this.paivitaTietoalueenTiedot();
 
             this.tilanTarkastelu();
 
         } else {
-            //TODO: Äänimerkki jos siirto ei onnistunut
-            System.out.println("Siirtoa ei voitu tehdä!");
+            //System.out.println("Siirtoa ei voitu tehdä!");
             
             this.paivitaRuutuValituksi(lahde, false);
             pelialue.nollaaLahde();
@@ -130,7 +125,6 @@ public class SiirronKasittelija implements ActionListener {
     }
 
     private void paivitaTietoalueenTiedot() {
-        System.out.println("Tietoalueen päivitys:");
 
         tietoalue.siirtojaLabel.setText(Integer.toString(peli.siirtojaJaljella()));
         tietoalue.pisteitaLabel.setText(Integer.toString(peli.kerroPistemaara()));
