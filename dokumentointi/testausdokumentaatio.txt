@@ -1,3 +1,18 @@
 Yleistä testauksesta
 
 Jo projektin alkuvaiheissa ensimmäisiä yksikkötestauksia tehdessä tuli eteen kysymys, että aika iso osa testauksesta joutuisi tekemisiin satunnaisuuden kanssa (satunnaisia ruutuja, satunnaisissa kohdissa). Läheskään kaikkea haluamaani en siis voinut sisällyttä JUnit-testeihin, siinä laajuudessa kun niitä on opetettu ja vaadittu.
+
+Iso osa käsin testauksesta on tehty siirtoja toteuttamalla ja katsomalla monissa eri tilanteissa miten kaikki toimii. Tässä apuna on käytetty monissa eri kohdissa metodeissa olevia konsoliin tulostavia rivejä. Tällä tavoin on voinut varmistua, mitä tapahtuu, ja näyttääkö kaikki toimivan oikein.
+
+Yksi haaste testaamiseen tulee, että uusien ruutujen täyttöä ei ole mitenkään hidastettu, vaan koko laskenta tehdään tosi nopeasti, jolloin ihmissilmä ei ehdi havainnoimaan ylhäältä tulevia ruutuja, ja niiden muodostamien yhdistelmien poistumista. Tähän olisi ollut järkevä yrittää huomioida joku ratkaisu, tosin sen toteuttaminen olisi vaatinut hieman erilaista rakennetta, ja kenties yhteyttä käyttöliittymään, ja siihen vaihtaminen tuntui turhan isolta enää loppupuolella aloitettavaksi.
+
+Osa testauksessa käytetyistä konsolitulostuksista on edelleen vielä koodissa mukana kommentoituna. Ne toimivat esimerkkinä siitä, millä tavoin olen käyttänyt välitulostuksia apuna testauksessa.
+
+Lisäksi graafisen ruudukon alkuvaiheissa käytin paljon rinnalla tekstipohjaista ruudukon tulostusta konsoliin. Se auttoi testaamaan, että ruudukon sisältö todellakin tulostui oikein, sillä tekstipohjaisen ruudukon toiminnasta oli valmiiksi jo helpompi varmistua. Ja kun graafinen näytti aina täsmäävän sen kanssa, toiminta näytti oikealta.
+
+
+----
+Puuttuvia ominaisuuksia
+----
+
+Projektista jäi puuttumaan joitain siihen aikomiani ominaisuuksia. Toimintoja, sekä käyttöliittymän parempaa toiminnallisuutta. Pelilogiikka olisi myös mahdollistanut paljon enemmän syventymistä ja erilaisten toimintojen tekemistä (esim. 4+ yhdistelmille olisi syntynyt ympärillä oleviin ruutuin lisäpisteitä yms), mutta näitä ei kai sinänsä voi pitää varsinaisina bugeina.
