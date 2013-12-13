@@ -25,7 +25,7 @@ import javax.swing.border.Border;
 
 /**
  * Perusrunko pelin graafiselle käyttöliittymälle
- * @author jsopakar
+ * @author 012616660
  */
 public class GraafinenKL implements Runnable {
     
