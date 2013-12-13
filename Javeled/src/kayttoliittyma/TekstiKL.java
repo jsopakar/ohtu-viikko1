@@ -210,14 +210,9 @@ public class TekstiKL {
         System.out.println("S = Siirron tekeminen:");
         System.out.println("    Tämän jälkeen annettava omille riveilleen lähderuudun");
         System.out.println("    rivin ja sarakkeen numero, ja samat tiedot kohderuudulle.");
-        System.out.println("P = Poista tyhjät ruudut, tuomalla ylhäältä alaspäin ja arpomalla uusia");
         System.out.println("T = Peliruudukon tulostus uusiksi");
         System.out.println("O = Tulostaa nämä ohjeet");
         System.out.println("L = Lopetus (myös tyhjä rivi kelpaa)");
-        System.out.println("HUOM! Jokaisen siirron jälkeen P:llä poistettava tyhjät ruudut ja suoritettava uusi käsitely");
-        System.out.println("kunnes nollaruutuja ei enää näy.");
-        System.out.println("Tämä tulee automaattiseksi, mutta toistaiseksi auttaa vielä hahmottamaan mitä ruudukossa tapahtuu");
-        System.out.println("askel askeleelta.");
         System.out.println("");
     }
     

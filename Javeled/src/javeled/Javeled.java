@@ -9,8 +9,11 @@ import kayttoliittyma.TekstiKL;
 import javax.swing.SwingUtilities;
 
 /**
- *
- * @author jsopakar
+ * Ohjelman käynnistävä luokka.
+ * <p>
+ * Käynnistää graafisen käyttöliittymän, mutta testivaiheen tekstipohjainen
+ * käyttöliittymä on tarvittaessa mukana koodissa kommentoituna.
+ * @author 012616660
  */
 public class Javeled {
 
@@ -22,14 +25,13 @@ public class Javeled {
         System.out.println("Javeled alpha");
         System.out.println("-------------\n");
         
-        // Pelitaso peli = new Pelitaso();
+        GraafinenKL klG= new GraafinenKL();
+        SwingUtilities.invokeLater(klG);
+
         
         //TekstiKL klT = new TekstiKL();
         //klT.testipeli();
-
         
-        GraafinenKL klG= new GraafinenKL();
-        SwingUtilities.invokeLater(klG);
         
     }
 }
