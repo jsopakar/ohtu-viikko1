@@ -15,17 +15,45 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 /**
- *
+ * ActionListener-tyyppinen käsittelijä, joka huolehtii käyttäjän tekemän
+ * siirtovalinnan käsittelemisestä.
  * @author 012616660
  */
 public class SiirronKasittelija implements ActionListener {
-
+    
+    /**
+     * Viite Pelitasoon.
+     */
     private Pelitaso peli;
+    
+    /**
+     * Kyseinen ruutu.
+     */
     private Ruutu ruutu;
+    
+    /**
+     * Minkä sijainnin käsittelijä on kyseessä.
+     */
     private Point sijainti;
+    
+    /**
+     * Viittaus pelialueeseen, sen päivittämistä varten siirron jälkeen.
+     */
     private Pelialue pelialue;
+    
+    /**
+     * Viittaus tietoalueesee, sen päivttämistä varten siirron jälkeen.
+     */
     private Tietoalue tietoalue;
 
+    /**
+     * Konstruktori, tarvittavine viitteineen.
+     * @param pt Pelitaso
+     * @param r Ruutu
+     * @param sijainti Ruudun sijaintitiedot
+     * @param pa Pelialue
+     * @param ta Tietoalue
+     */
     public SiirronKasittelija(Pelitaso pt, Ruutu r, Point sijainti, Pelialue pa, Tietoalue ta) {
         this.peli = pt;
         this.ruutu = r;
@@ -70,12 +98,16 @@ public class SiirronKasittelija implements ActionListener {
         }
 
         // Konsoliin tulostus tarvittaessa debuggaukseen:
-        if (lahdeValittu) {
-            //tulostaRuudukko(this.peli.getRuudukko());
-        }
+        //if (lahdeValittu) {
+        //    tulostaRuudukko(this.peli.getRuudukko());
+        //}
 
     }
-
+    /**
+     * Siirron käsittelyn hoitaminen.
+     * <p>
+     * Jos siirto onnistui, päivitetään peli-ja tietoalueen sisällöt.
+     */
     private void kasitteleSiirto() {
         Point lahde = pelialue.getLahde();
         boolean onnistui;
@@ -124,6 +156,9 @@ public class SiirronKasittelija implements ActionListener {
         }
     }
 
+    /**
+     * Päivittää tietoalueen tiedot, lähinnä siirtomäärän ja pistetilanteen.
+     */
     private void paivitaTietoalueenTiedot() {
 
         tietoalue.siirtojaLabel.setText(Integer.toString(peli.siirtojaJaljella()));
@@ -165,6 +200,8 @@ public class SiirronKasittelija implements ActionListener {
     /**
      * Metodi, joka merkitsee ruudun korostetuksi kun se on valittu lähteeksi.
      * <p>
+     * Määritellään setBorderPainted- ja setSelected-arvoilla.
+     * <p>
      * Samalla metodilla voidaan päivittää ruudun tila ei-valituksi.
      * @param ruutu haluttu ruutu
      * @param valituksi tieto siitä, merkataanko ruutu valituksi ei ei-valituksi
@@ -176,6 +213,5 @@ public class SiirronKasittelija implements ActionListener {
             JButton nappula = (JButton) komponentit[monesko];
             nappula.setBorderPainted(valituksi);
             nappula.setSelected(valituksi);
-
     }
 }
