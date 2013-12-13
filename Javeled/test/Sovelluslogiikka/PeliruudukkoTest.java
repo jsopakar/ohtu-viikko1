@@ -162,5 +162,12 @@ public class PeliruudukkoTest {
         assertEquals(true, kunnossa);
     }
     
+    @Test
+    public void toimiikoMonenPisteenRuudunPistelisays() {
+        ruudukko.palautaRuutu(0, 0).asetaPistearvo(8);
+        ruudukko.poistaRuutu(0, 0);
+        assertEquals(8, ruudukko.pistetilanne());
+    }
+    
     
 }

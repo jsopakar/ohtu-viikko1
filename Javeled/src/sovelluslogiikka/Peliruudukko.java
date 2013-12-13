@@ -114,7 +114,7 @@ public class Peliruudukko {
     public void taytaEsimerkkiruudukkoTesteihin() {
         Ruutu[][] uusiSisalto = new Ruutu[koko][koko];
         int[][] numerot  =
-            { { 1, 1, 3, 2, 2, 1 },
+          { { 1, 1, 3, 2, 2, 1 },
             { 2, 1, 1, 1, 2, 3 },
             { 2, 1, 3, 2, 3, 3 },
             { 2, 1, 1, 3, 1, 1 },
@@ -349,8 +349,9 @@ public class Peliruudukko {
      */
     public void poistaRuutu(int sarake, int rivi) {
         
+        int tamanPisteet = this.palautaRuutu(sarake, rivi).pistearvo();
+        pisteet.lisaaPisteita(tamanPisteet);
         this.sisalto[sarake][rivi] = new Ruutu(0);
-        pisteet.lisaaPisteita(1);
     }
     
     /**
