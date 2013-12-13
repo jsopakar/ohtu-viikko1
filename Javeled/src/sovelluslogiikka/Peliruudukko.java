@@ -344,7 +344,10 @@ public class Peliruudukko {
     }
     
     /**
-     * Yksittäisen ruudun poistava metodi
+     * Yksittäisen ruudun poistava metodi.
+     * <p>
+     * Lisää samalla yhden pisteen jokaista poistettua ruutua kohti. Ei huomio
+     * mahdollisia ruutujen pistemääriä.
      * @param sarake poistettavan ruudun sarake
      * @param rivi poistettavan ruudun rivi
      */
@@ -371,10 +374,14 @@ public class Peliruudukko {
      * 
      */
     public void teePoisto() {
-        if (poistettavatRuudut != null) {
+        while (!poistettavatRuudut.isEmpty()) {
+            
             poistaRuudut(poistettavatRuudut);
+            poistettavatRuudut.clear();
+            
+            this.taytaTyhjatRuudut();
+            this.kasitteleKokoRuudukko();
         }
-        poistettavatRuudut.clear();
     }
     
     /**
