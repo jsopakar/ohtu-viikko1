@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sovelluslogiikka;
 
 /**
  * Luokka yksittäistä peliruutua varten.
  * <p>
  * Sisältää kaiken yksittäisen ruutuun vaikuttavan tiedon.
- * @author jsopakar
+ * @author 012616660
  */
 
 /* Luokkarunko yksittäiselle peliruudulle

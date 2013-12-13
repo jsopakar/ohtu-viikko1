@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sovelluslogiikka;
 
 /**
@@ -11,7 +7,6 @@ package sovelluslogiikka;
  * 
  * @author 012616660
  */
-
 public class Pelitaso {
     
     private int tempTestikoko = 6;
