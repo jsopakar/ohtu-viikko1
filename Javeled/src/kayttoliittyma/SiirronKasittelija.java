@@ -39,6 +39,7 @@ public class SiirronKasittelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         
+        // Jos siirrot loppuneet, ei tehdä mitään vaan kerrotaan vain dialogissa se
         if (peli.siirtojaJaljella() <= 0) {
             JOptionPane.showMessageDialog(null,
                     "Siirtoja ei enää jäljellä",
@@ -56,8 +57,12 @@ public class SiirronKasittelija implements ActionListener {
             pelialue.asetaLahde(sijainti.x, sijainti.y);
             System.out.println("Asetettiin lähderuutu");
         } else {
-            if (false) { // TODO: käsittely jos klikattu samaa kuin lähde
+            Point lahde = pelialue.getLahde();
+            
+            // Tarkastetaan ettei klikattu samaa ruutua uudestaan:
+            if (lahde.equals(sijainti)) {
                 System.out.println("Klikattu samaa uudestaan!");
+                pelialue.nollaaLahde();
             } else {
                 System.out.println("Käsitellään siirto");
                 kasitteleSiirto();
