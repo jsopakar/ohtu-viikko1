@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package kayttoliittyma;
 
 import java.awt.Color;
@@ -20,7 +16,7 @@ import javax.swing.border.Border;
 
 /**
  *
- * @author jsopakar
+ * @author 012616660
  */
 public class SiirronKasittelija implements ActionListener {
 
