@@ -10,9 +10,20 @@ package sovelluslogiikka;
 public class Pelitaso {
     
     private int tempTestikoko = 6;
+    
+    /**
+     * 
+     */
     private int maksimiSiirtomaara = 10;
     
+    /**
+     * Peliruudukko-olio, sisältää varsinaisen pelisisällön
+     */
     private Peliruudukko ruudukko;
+    
+    /**
+     * Laskuri jäljellä oleville siirroille.
+     */
     private int siirtojaJaljella = maksimiSiirtomaara;
     
     private int vaadittuPistemaara;
@@ -116,14 +127,9 @@ public class Pelitaso {
     }
     
     /**
-     * Metodi, joka suorittaa yksittäisen siirron jälkitarkastelun.
-     * <p>
-     * KESKEN
+     * Palauttaa pistemäärän Pistelasku-olion kautta kutsuttuna.
+     * @return tämänhetkinen pistemäärä.
      */
-    public void siirronJalkikasittely() {
-        ruudukko.taytaTyhjatRuudut();
-    }
-    
     public int kerroPistemaara() {
         return this.pisteet.getPisteet();
     }

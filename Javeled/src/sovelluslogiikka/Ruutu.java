@@ -6,18 +6,23 @@ package sovelluslogiikka;
  * Sisältää kaiken yksittäisen ruutuun vaikuttavan tiedon.
  * @author 012616660
  */
-
-/* Luokkarunko yksittäiselle peliruudulle
- * 
- */
-
 public class Ruutu {
     
+    /**
+     * Ruudun tyyppi, ilmaistuna positiivisena kokonaislukuina, toistaiseksi
+     * suunniteltu 5 eri tyypille.
+     */
     private int tyyppi;
+    
+    /**
+     * Ruudun pistearvo, positiivisena kokonaislukuna.
+     */
     private int pistearvo;
     
     /**
-     * Konstruktori, joka luo halutun tyyppisen ruudun
+     * Konstruktori, joka luo halutun tyyppisen ruudun.
+     * <p>
+     * Luo oletuksena 1-pistearvolla olevan Ruudun.
      * @param tyyppi haluttu tyyppi
      */
     public Ruutu(int tyyppi) {
@@ -71,5 +76,4 @@ public class Ruutu {
             this.pistearvo = 1;
         }
     }
-    
 }

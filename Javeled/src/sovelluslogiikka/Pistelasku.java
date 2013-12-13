@@ -9,35 +9,66 @@ package sovelluslogiikka;
  * @author 012616660
  */
 public class Pistelasku {
-
+    
+    /**
+     * Laskuri tämän hetkiselle pistemäärällä. Alkaa nollasta.
+     */
     private int pisteitaTallahetkella;
+    
+    /**
+     * Kenttä, jolla voidaan rakentaa kentän läpipääsyyn vaadittava pistemäärä.
+     * <p>
+     * Huom. Julkaisuversio ei käytä tätä vielä millään tavalla.
+     */
     private int vaaditutPisteet;
 
     /**
-     * Konstruktri, joka luo pistelaskun, jossa ei ole vaadittuja pisteitä
+     * Konstruktori, joka luo pistelaskun, jossa ei ole vaadittuja pisteitä
      * läpipääsyyn.
      */
     public Pistelasku() {
         this(-1);
     }
-
+    
+    /**
+     * Konstruktori, joka tukee vaadittavien pisteiden antamista.
+     * @param vaadittavatPisteet pelitason läpipääsyyn vaadittava pistemäärä
+     */
     public Pistelasku(int vaadittavatPisteet) {
         this.vaaditutPisteet = vaadittavatPisteet;
         this.pisteitaTallahetkella = 0;
     }
 
+    /**
+     * 
+     * @return tämänhetkinen pistemäärä
+     */
     public int getPisteet() {
         return this.pisteitaTallahetkella;
     }
     
+    /**
+     * 
+     * @return läpipääsyyn vaadittava pistemäärä
+     */
     public int getVaaditutPisteet() {
         return this.vaaditutPisteet;
     }
-
+    
+    /**
+     * Metodi pistemäärän kasvattamiseen.
+     * @param pisteet lisättävä pistemäärä
+     */
     public void lisaaPisteita(int pisteet) {
         this.pisteitaTallahetkella += pisteet;
     }
-
+    
+    /**
+     * Metodi pistemäärän vähentämiseen.
+     * <p>
+     * Ei käytetä julkaisuversiossa, mukana vain tukena jatkoon.
+     * @param pisteet vähennettävä pistemäärä
+     */
     public void vahennaPisteita(int pisteet) {
         this.pisteitaTallahetkella -= pisteet;
         if (this.pisteitaTallahetkella < 0) {
