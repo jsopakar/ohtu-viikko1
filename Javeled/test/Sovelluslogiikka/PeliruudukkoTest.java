@@ -125,16 +125,6 @@ public class PeliruudukkoTest {
         assertArrayEquals(oikea, poistetut);
     }
     
-    //Testataan yksittäinen ruutu vain
-    @Test
-    public void ToimiikoVaihtoJaPoistoYhdessa() {
-        boolean boo = ruudukko.vaihdaRuudut(0, 0, 1, 0);
-        int x = ruudukko.kasitteleRuutu(1, 1);
-        ruudukko.teePoisto();
-        int poistetunTyyppi = ruudukko.palautaRuutu(3, 1).kerroTyyppi();
-        assertEquals(0, poistetunTyyppi);
-    }
-    
     //Testataan toimiiko tyhjän tilan täyttö
     @Test
     public void ToimiikoKokoTyhjanTilanTaytto() {
