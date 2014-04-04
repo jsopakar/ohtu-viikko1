@@ -1,0 +1,31 @@
+Suunnitelmarunkoa pääasiassa omaksi tiedoksi, jäsentelyyn ja etenemisen suunnitteluun. Kertoo myös missä vaiheessa eteneminen on.
+
+Päivitetty tilanne 21.11.
+
+Tekstipohjaisena pelin runko toimii. Siirtoja voi tehdä S-komennolla,
+mutta tarkoituksella vielä siirto ei vielä tee automaattisesti kaikkea toiminnallisuutta loppuun asti. Välivaiheena näkee 0-tilaiset ruudut, jotka voi poistaa P-komennolla. Tämä myöskään vielä toista itseään tarvittaessa, vaan käyttäjä voi P:llä toistaa nollien poistoa tarvittavan määrän, jotta on helpompi havainnoita toiminnan oikeuttakin.
+
+Pisteenlaskua ei vielä ole, eikä siirtojen loppumiselle mitään tarkastelua.
+
+Todennäköinen alun pisteenlasku tulee olemaan, että pelikentällä on merkattu tietyt tyypit sellaiseksi, joista saa pisteitä. Tarkoitus on nimenomaan niitä yhdistää, ja loput tyypit ovat tavallaan vain tiellä. Tällä tavoin tulee edes jotain tavoitteellisuutta alkutoteutukseen.
+
+
+
+
+
+Puuttuvia olennaisia vaiheita, suunnilleen toteutettavassa järjestyksessä:
+
+- Pistelasku, aluksi yksinkertaisella tasolla
+
+- Graafinen käyttöliittymä isona kokonaisuutena
+
+- Testit voisivat olla kattavampia, satunnaisuus ruutujen arvonnassa oma ongelmansa.
+- Jonkinlaista käsinkirjoitettua testausta satunnaisiin juttuihin.
+
+
+Ominaisuuksia, jotka mahdollisuuksien mukaan, jos jää aikaa:
+
+- Erilaisten kenttien valinta, mahdollisesti tuki tiedostosta lukemiselle
+- Monipuolisempi pisteytys. Ruudulla erilaisia pistearvoja.
+
+- Tuki erikoisruuduille. Tai ruudukon erikoispaikoille, joissa voisi tulla kaksinkertaiset pisteet. Mahdollisuuksia paljon.

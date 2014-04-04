@@ -1,0 +1,78 @@
+﻿Ohjelmoinnin harjoitustyön tuntikirjanpito
+
+Ennen kurssin alkua, 5-10h sekalaista esitietokertausta, mm. mooc-kertaustehtävien avulla.
+
+Ma 28.10.
+ - 2h Aloitusluento plus sekalaista asioihin perehtymistä
+Ke 30.10.
+ - 2h Perehtyminen jatkuu, githubiin paremmin tutustumista, ensimmäisen 
+      palautuksen valmistelua. Lisäksi aiheen valintaa, ja alustavaa
+      kokonaisuuden suunnittelua.
+
+Ti 5.11.
+ - 0,5h Sekalaista opettelua
+Ke 6.11
+ - 3h Perusluokkien runkoa, testaamiseen perehtymistä ja ensimmäisten testien luontia
+To 7.11
+ - 3h Jatkoa edelliseen, lisää perustoiminnallisuutta, muutama testi, ja asioiden opettelua ja kertausta
+
+
+Ma 11.11.
+ - 1h perustoiminnallisuutta
+Ti 12.11.
+ - 2,5h Siirronkäsittelyä, Point-luokan löytäminen käytettäväksi
+Ke 13.11.
+ - 2h Vähän eteenpäin sekalaista...
+To 14.11.
+ - 2h Tekstikäyttöliittymän edistämistä, muuta tutkimista ja kiireessä
+palautukseen viimeistelyn yrittämistä
+
+La 16.11.
+ - 2h Gitin asennus kotikoneelle, ja säätöä että kotiläppäriltä voi neatbeansilla koodata myös
+Ma 18.11.
+ - 3h Perustoiminnallisuutta lisää, testien esimerkkiruudukon eriyttämistä varsinaisesta peliruudukosta. Ruutujen vaihto nyt myös käsittelee ja nollaa ruudut oikein.
+TI 19.11.
+ - 1h pelilogiikan siirtoa ruudukosta pelikenttään
+Ke 20.11.
+ - 2h Tekstikälin hiomista testauskelpoisemmaksi, javadocin kirjoittelua
+To 21.11.
+ - 2,5h Sekvenssikaavioita, selkeyttämistä katselmointia varten yms
+ 
+Ti 26.11.
+ - 3h Pikkutoiminnallisuutta, sekä lisätty hyvin raakilevaiheessa oleva graafinen kälirunko
+Ke 27.11.
+ - 0,5h Graafisten juttujen lueskelua
+To 28.11.
+ - 1h Sekalaista, graafisen puolen kans jumittamista...
+
+Ma 2.12.
+ - 2h Graafisen kälin opettelua ja rakentelua, tapahtumakäsittelijä tehty
+Ti 3.12.
+ - 4h Siirron jälkeisen käsittelyn selviäminen, yhdessä juttelua ohjaajan kanssa, ja toteuttamista tämän jälkeen.
+Ke 4.12.
+ - 1h Luokkarunko pistelaskulle, tästä saisi hyvin laajennettua! Jos aikaa olisi.
+
+La 7.12.
+ - 2h Epätoivoista pähkäilyä ja kokeilua, saamatta kunnolla mitään aikaan.
+Su 8.12.
+ - 5h Yleistä javan Swing-tutoriaalien tutkimista, ja asioiden kokeilua. 
+    totesin kuitenkin että ei ole järkeä tällä aikataululla ryhtyä kovin hienoja
+    säätöjä sisällyttämään tähän peliprojektiin, ettei koko homma hajoa käsiin.
+
+Ma 9.12.
+ - 2h Sekalaista logiikan ja kälin jalostamista. Etenkin pistemäärän laskemista ja sen näyttämisen päivittämistä.
+Ti 10.12.
+ - 2h Kälin viilausta, mahdollisen merkkiäänen lisäämisen selvittelyä.
+Ke 11.12.
+To 12.12.
+
+Pe 13.12.
+ - 9h SEkalaista viimeistelyä. Viimeisimpien toiminnallisuuksien puukottamista ja korjaamista, dokumentaation päivittämistä ajan tasalle, kokonaisuuden viilaamista
+edes lähelle kelvollista palautuskuntoa. :)
+
+
+Varsinaisen lasketun ja kirjan tuntijan päälle erinäinen määrä käytettyä aikaa logiikan miettimiseen mm. automatkoilla, suihkussa yms. Lisäksi jonkin verran Javan juttujen tutkimista ja lukemista, josta kaikki ei päätynyt suoraan projektia varten tai tähän kirjanpitoon.
+
+Yhteensä noin 80h + random-mietiskelyt päälle.
+
+

@@ -1,0 +1,28 @@
+
+Aihe: Javeled - Peli, jossa siirretään erivärisiä nappuloita suorien muodostamiseksi
+
+Pelin tarkempi kuvaus ja taustaa:
+
+Projektin ajatus lähti Facebook-pelistä nimeltä Farm Heroes Saga. Tarkempi perehtyminen osoitti, että ilmeisesti peli-idea on pohjimmiltaan lähtöisin Bejeweled-pelistä, http://en.wikipedia.org/wiki/Bejeweled. Farm Heroes todennäköisesti toimii jonkinlaisena esikuvana kuitenkin peliä tehdessä.
+
+Yksinkertaistettuna tarkoituksena on siis tehdä peli, jossa on peliruudukko, jonka jokaisessa ruudussa sijaitsee jonkin värinen symboli. Pelaaja saa vaihtaa kahden vierekkäisen ruudun paikkaa, muodostaakseen jostain väristä kolmen tai enemmän mittaisen yhtenäisen alueen.
+
+Tarkemmat pelisäännöt, etenkin pisteenlasku ja tason konkreettinen läpipääsy tarkentuvat kunhan suunnittelu ja alustava toteutus pääsee alkuun. Alustava tarkoitus on tehdä tuki erilaisille kentille (kentän kuvaus tiedostosta luettuna), ja mahdollisesti lisätä tuki yhdelle tai useammalle erikoisruudulle (esim. jotain räjähtäviä ruutuja, tai erikseen avattavia jollain yhdistelmällä).
+
+Ylipäätään aihe mahdollista hyvin sen, että pelin perustoiminnallisuus ei ole liian laaja, mutta juuri erikoisruuduilla on mahdollista kasvattaa työn laajuutta tarpeen mukaan, kun projektin loppupuolella pystyy tarkemmin arvioimaan kokonaisuuden vaativuutta.
+
+----------
+
+Pelaajan alustavaa toimintolistausta: 
+
+- Kentän valinta listasta
+- Varsinaisten siirtojen tekeminen pelialueella
+  * keskeisin käyttöliittymän toiminnallisuusalue
+- Kentän lopettaminen / uudelleenaloittaminen / vaihtaminen
+
+Järjestelmän näkökulmasta:
+
+- Kentän lukeminen tiedostosta ja lataaminen käyttöliittymään
+- Yksittäisen käyttäjän siirron prosessointi
+  * sisältänee työläimmän osan logiikan puolelta, kaikkine vaadittavine tarkastuksineen
+- Tarkastelu menikö kenttä läpi, siirtovuorojen loppuessa tai muun raja-arvon ylittyessä

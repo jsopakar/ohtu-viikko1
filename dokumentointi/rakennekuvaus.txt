@@ -1,0 +1,9 @@
+Rakennekuvaus, tarkennettuna luokkakaaviosta
+
+Koko peli siis rakentuu Sovelluslogiikkaan ja käyttöliittymään.
+
+Käyttöliittymässä on sekä yksinkertainen tekstikäyttöliittymä, että varsinaiseksi käyttöliittymäksi tarkoitettu graafinen versio.
+
+Graafinen käyttöliittymä koostuu pääasiassa kahdesta JPanel-johdannaisesta alueesta, joista keskeinen on peliruudukon tulostava alue. Sillä on oma tapahtumakäsittelijänsä. Yksinkertaisempi osa on tietoalue, joka huolehtii mm. pistetilanteen näyttämisestä.
+
+Pelilogiikka jakautuu Pelialueeseen, Peliruudukkoon, Ruutuun, ja Pistetilanteeseen. Jako lienee kohtalaisen suoraviivainen ymmärtää, ja yhteydet on kuvattu luokkakaaviossa.
